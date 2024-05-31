@@ -1,0 +1,9 @@
+checkmytex
+pytest
+pytest-cov
+# Ci-dessous les dépendances de l'implémentation de l'aArduino
+arduino-simple-rpc
+# Ci-dessous les dépendances de l'exemple de tests d'intégration
+bleak
+json-rpc
+werkzeug

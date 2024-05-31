@@ -1,0 +1,25 @@
+# Launch the pytest unit tests
+name: Unit tests
+on: [ push ] # Trigger(s) du workflow, ici push uniquement
+jobs:
+  unit_tests: # Name of the job
+    runs-on: ubuntu-latest # type de machine sur laquelle les steps vont être exécutés
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test witnessed number
+        if: always()
+        run: pytest --cov=witness_number test_witness_number.py
+      - name: Test customer database
+        if: always()
+        run: pytest --cov=customer_database test_customer_database.py
+      - name: Test basic division
+        if: always()
+        run: pytest test_divison.py

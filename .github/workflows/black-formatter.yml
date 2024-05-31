@@ -1,0 +1,12 @@
+# Largely inspired from the marketplace https://github.com/marketplace/actions/run-black-formatter
+name: Black Formatter Action
+on: [ push ]
+jobs:
+  linter_name:
+    name: runner / black formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rickstaa/action-black@v1
+        with:
+          black_args: "customer_database.py witness_number.py --check"
