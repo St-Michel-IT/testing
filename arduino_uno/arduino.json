@@ -1,0 +1,7 @@
+{
+    "configuration": "softdevice=s110",
+    "board": "sandeepmistry:nRF5:BBCmicrobit",
+    "port": "/dev/ttyACM0",
+    "programmer": "jlink",
+    "sketch": "check_arm_cortex_mo_precision.ino"
+}
