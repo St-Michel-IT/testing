@@ -812,7 +812,7 @@ features/steps/
 features/steps/steps.py
         \end{lstlisting}
         Derrière une phrase~:
-        \begin{lstlisting}
+        \begin{lstlisting}[language=Python]
 from behave import then
 
 @then('the result page will include "{text}"')
@@ -821,7 +821,7 @@ def step_impl(context, text):
         fail('%r not in %r' % (text, context.response))
         \end{lstlisting}
         Avec Cucumber en Java\footnote{Cucumber Java, \url{https://cucumber.io/docs/guides/10-minute-tutorial/}}~:
-        \begin{lstlisting}
+        \begin{lstlisting}[language=Java]
 @When("the stock is traded at $price")
 public void theStockIsTradedAt(double price) {
     stock.tradeAt(price);
@@ -1331,7 +1331,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \transdissolve
         Les workflows sont dans les fichiers suivants~:
         \begin{lstlisting}[language=sh]
-chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/qualite-code-source$ tree .github/
+$ tree .github/
 .github/
 --- workflows
     --- build-document.yml
@@ -1351,7 +1351,7 @@ chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/qualite-code-source$ t
         \transdissolve
         Les workflows sont dans les fichiers suivants~:
         \begin{lstlisting}[language=sh]
-chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/testing$ tree .github
+$ tree .github
 .github
 --- workflows
     --- build-document.yml
