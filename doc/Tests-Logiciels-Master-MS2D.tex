@@ -1012,7 +1012,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \transdissolve
         \frametitle{Les tests d'intégration}
         \framesubtitle{définition}
-        Autrement dit, les tests unitaires on testés chaque composant, ceux d'interactions testent les interactions entre les composants.
+        Autrement dit, les tests unitaires ont testés chaque composant, ceux d'intégration testent les interactions entre les composants.
         \bigbreak
         \centering
         \includegraphics[width=7cm]{image/integration-testing-vs-unit-testing}
@@ -1610,7 +1610,7 @@ jobs:
         GitLab est une plateforme de gestion de développement de logiciels au sens large.
         Son développement à commencé en 2011~.
         \bigbreak
-        Le nombre de ces fonctionnalité ne cesse d'augmenter mais elle est surtout connue comme VCS pour son intégration de Git.
+        Le nombre de ces fonctionnalités ne cesse d'augmenter mais elle est surtout connue comme VCS pour son intégration de Git.
         \bigbreak
         GitLab se tourne vers le CI/CD en 2018.
         \bigbreak
@@ -1627,7 +1627,7 @@ jobs:
         \frametitle{GitLab}
         \framesubtitle{Les versions}
         \transdissolve
-        Community ou Entreprise Edition~:
+        Community Edition (CE) ou Entreprise Edition (EE)~:
         \bigbreak
         \centering
         \includegraphics[width=8cm]{image/gitlab-versions}
@@ -1638,25 +1638,7 @@ jobs:
 
         Les fonctionnalités de ces 3 versions sont bien différentes, voir \url{https://about.gitlab.com/pricing/feature-comparison/}.
 
-        On ne paye donc pas que pour les ressources utilisés comme chez GitHub mais aussi pour les fonctionnalités.
-    \end{frame}
-
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Les versions}
-        \transdissolve
-        Community ou Entreprise Edition~:
-        \bigbreak
-        \centering
-        \includegraphics[width=8cm]{image/gitlab-versions}
-        \flushleft
-        La version CE est à installer sur une de ses propres machines.
-
-        La version EE se décline en Premium et Ultimate.
-
-        Les fonctionnalités de ces 3 versions sont bien différentes, voir \url{https://about.gitlab.com/pricing/feature-comparison/}.
-
-        On ne paye pas donc que pour les ressources utilisés comme chez GitHub mais aussi pour les fonctionnalités.
+        On ne paie donc pas que pour les ressources utilisés comme chez GitHub mais aussi pour les fonctionnalités.
     \end{frame}
 
     \begin{frame}[fragile]
@@ -1681,7 +1663,7 @@ job_test:
   script:
     - echo "Running tests"
         \end{lstlisting}
-        Ce Pipeline doit être exécuté dans un runner.
+        Ce Pipeline doit être exécuté dans un \textquote{runner}.
     \end{frame}
 
     \begin{frame}
@@ -1728,7 +1710,7 @@ job_test:
         \frametitle{GitLab}
         \framesubtitle{Exécution d'un pipeline sur un runner donné}
         \transdissolve
-        Par défaut si dans le pipeline, aucun runner n'est spécifié, le pipeline est exécuté sur un runner disponible et compatible sans que l'on puisse prédire lequel.
+        Par défaut, si dans le pipeline, aucun runner n'est spécifié, le pipeline est exécuté sur un runner disponible et compatible sans que l'on puisse prédire lequel.
         \bigbreak
         Lors de la configuration du runner, on peut lui donner de(s) tag(s).
         \bigbreak
