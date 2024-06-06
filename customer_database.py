@@ -17,12 +17,14 @@ class Customer:
         """
         Create the customer table if not exists
         """
-        self.con.execute("""
+        self.con.execute(
+            """
             CREATE TABLE IF NOT EXISTS customer (
                 id INT PRIMARY KEY NOT NULL,
                 email TEXT NOT NULL
             )
-            """)
+            """
+        )
 
     def insert(self, customer_id: int, email: str) -> None:
         """
@@ -31,11 +33,14 @@ class Customer:
            :param customer_id: The customer id as an int
            :param email: The customer email as a string
         """
-        self.con.execute("""
+        self.con.execute(
+            """
             INSERT INTO customer (
                 id,
                 email
             ) VALUES (
                 ?, ?
-            )""", (customer_id, email))
+            )""",
+            (customer_id, email),
+        )
         self.con.commit()

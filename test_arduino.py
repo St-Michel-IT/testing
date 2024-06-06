@@ -11,6 +11,7 @@ Keep in mind Python float numbers have a 64 bits precision, it is  a C double!
 Arduino double are in fact float, but Python float are double...
 Play with arduino integer/long overflow and buffer overflow protection.
 """
+
 import pytest
 from simple_rpc import Interface
 
@@ -24,7 +25,7 @@ RANDOM_DIVIDENDS_AND_DIVISORS = [
 ]
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def interface_port_com() -> str:
     """
     This fixture returns the port COM of the Arduino Uno board.
@@ -32,10 +33,10 @@ def interface_port_com() -> str:
 
        :return: The COM port name as a string
     """
-    return '/dev/ttyACM0'
+    return "/dev/ttyACM0"
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def interface(interface_port_com: str) -> Interface:
     """
     Fixture that returns an interface with the Arduino Uno board.
@@ -47,11 +48,7 @@ def interface(interface_port_com: str) -> Interface:
 
 
 @pytest.mark.parametrize("dividend, divisor", RANDOM_DIVIDENDS_AND_DIVISORS)
-def test_divide_float(
-        interface: Interface,
-        dividend: int,
-        divisor: int
-) -> None:
+def test_divide_float(interface: Interface, dividend: int, divisor: int) -> None:
     """
     This test checks that the result of the division of 2 by 3 from Python
     having a 64 bits precision is not the same as the one from the Arduino Uno
@@ -67,15 +64,16 @@ def test_divide_float(
     error_message = """
     The result of the Arduino division %s is the same as the one calculated
     by Python %s
-    """ % (arduino_division_result, python_division_result)
+    """ % (
+        arduino_division_result,
+        python_division_result,
+    )
     assert arduino_division_result != python_division_result, error_message
 
 
 @pytest.mark.parametrize("dividend, divisor", RANDOM_DIVIDENDS_AND_DIVISORS)
 def test_float_and_double_identical_precision(
-        interface: Interface,
-        dividend: int,
-        divisor: int
+    interface: Interface, dividend: int, divisor: int
 ) -> None:
     """
     According to the Arduino documentation, the float and double types have the
@@ -87,27 +85,22 @@ def test_float_and_double_identical_precision(
        :param dividend: Dividend sent to the Arduino Uno
        :param divisor: Divisor sent to the Arduino Uno
     """
-    arduino_float_division_result = interface.floatDivision(
-        dividend, divisor
-    )
-    arduino_double_division_result = interface.doubleDivision(
-        dividend, divisor
-    )
+    arduino_float_division_result = interface.floatDivision(dividend, divisor)
+    arduino_double_division_result = interface.doubleDivision(dividend, divisor)
     error_message = """
     Result of the Arduino float division %s is not the same as the one from
     the Arduino double division %s
     """ % (
         arduino_float_division_result,
-        arduino_double_division_result
+        arduino_double_division_result,
     )
-    assert arduino_float_division_result == arduino_double_division_result, error_message
+    assert (
+        arduino_float_division_result == arduino_double_division_result
+    ), error_message
 
 
 @pytest.mark.parametrize("value_to_add", range(1, 100))
-def test_unsigned_long_overflow(
-        interface: Interface,
-        value_to_add
-) -> None:
+def test_unsigned_long_overflow(interface: Interface, value_to_add) -> None:
     """
     According to the Arduino documentation
     https://www.arduino.cc/reference/en/language/variables/data-types/unsignedlong/
@@ -118,23 +111,19 @@ def test_unsigned_long_overflow(
        :param interface: RPC interface with the Arduino Uno
        :param value_to_add: An integer to add to the unsigned long
     """
-    max_unsigned_long = 2 ** 32 - 1  # For the 32 bits Arduino one
-    arduino_addition_result = interface.longOverflow(
-        value_to_add
-    )
+    max_unsigned_long = 2**32 - 1  # For the 32 bits Arduino one
+    arduino_addition_result = interface.longOverflow(value_to_add)
     python_addition_result = value_to_add + max_unsigned_long
     error_message = """
     Result of the Arduino addition %s is the same as the one from Python %s
     """ % (
         max_unsigned_long,
-        arduino_addition_result
+        arduino_addition_result,
     )
     assert arduino_addition_result != python_addition_result, error_message
 
 
-def test_no_overflow_until_16_bytes(
-        interface: Interface
-) -> None:
+def test_no_overflow_until_16_bytes(interface: Interface) -> None:
     """
     This test checks that the Arduino Uno does not overflow until 16 bytes
 
@@ -142,18 +131,14 @@ def test_no_overflow_until_16_bytes(
     """
     for _ in range(100):
         overflow: bool = interface.isBufferOverflow(
-            bytes(
-                "".join("\x11" * 16).encode()
-            )
+            bytes("".join("\x11" * 16).encode())
         )
         assert overflow is False, "No buffer overflow detected"
         assert interface.is_open() is True, "The serial port not open"
 
 
 @pytest.mark.skip(reason="Might break the board and/or the port")
-def test_overflow_with_more_16_bytes(
-        interface: Interface
-) -> None:
+def test_overflow_with_more_16_bytes(interface: Interface) -> None:
     """
     This test might break the Arduino Uno board and the port when a too long
     byte array is sent.
@@ -162,9 +147,7 @@ def test_overflow_with_more_16_bytes(
     """
     for _ in range(100):
         overflow: bool = interface.isBufferOverflow(
-            bytes(
-                "".join("\x11" * 3000).encode()
-            )
+            bytes("".join("\x11" * 3000).encode())
         )
         assert overflow is False, "No buffer overflow detected"
         assert interface.is_open() is True, "The serial port not open"

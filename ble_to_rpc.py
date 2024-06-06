@@ -32,11 +32,7 @@ def application(request):
            :return: The only result of the coroutine, a list of BLEDevice
               objects address as strings.
         """
-        result = loop.run_until_complete(
-            asyncio.gather(
-                scanner.discover()
-            )
-        )[0]
+        result = loop.run_until_complete(asyncio.gather(scanner.discover()))[0]
         # turn all BLEDevice objects into dictionaries
         return [device.address for device in result]
 
@@ -44,11 +40,9 @@ def application(request):
     dispatcher["scan"] = get_executed_coroutine_discover
 
     # JSON RPC 2.0 handler
-    response = JSONRPCResponseManager.handle(
-        request.data, dispatcher
-    )
-    return Response(response.json, mimetype='application/json')
+    response = JSONRPCResponseManager.handle(request.data, dispatcher)
+    return Response(response.json, mimetype="application/json")
 
 
-if __name__ == '__main__':
-    run_simple('localhost', 4000, application)
+if __name__ == "__main__":
+    run_simple("localhost", 4000, application)

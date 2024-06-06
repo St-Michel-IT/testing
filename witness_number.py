@@ -3,7 +3,7 @@ import logging
 logging.basicConfig(
     format="%(asctime)s;%(levelname)s;%(message)s",
     level=logging.INFO,
-    datefmt="%m/%d/%Y %I:%M:%S %p"
+    datefmt="%m/%d/%Y %I:%M:%S %p",
 )
 
 
@@ -45,13 +45,9 @@ class WitnessNumber(int):
               witness number
         """
         if self.__number > test_number:
-            raise ValueError(
-                "Test number must be superior to the witness number."
-            )
+            raise ValueError("Test number must be superior to the witness number.")
         if test_number % 2 == 0 and test_number > 2:
-            raise ValueError(
-                "Number must be odd, an even number > 2 is never prime."
-            )
+            raise ValueError("Number must be odd, an even number > 2 is never prime.")
         if test_number <= 0:
             raise ValueError("Prime numbers are always positive.")
         self.__witness_of = test_number

@@ -30,11 +30,7 @@ def get_executed_coroutine_discover():
        :return: The only result of the coroutine, a list of BLEDevice
           objects address as strings.
     """
-    result = loop.run_until_complete(
-        asyncio.gather(
-            scanner.discover()
-        )
-    )[0]
+    result = loop.run_until_complete(asyncio.gather(scanner.discover()))[0]
     # turn all BLEDevice objects into dictionaries
     return [device.address for device in result]
 
@@ -44,7 +40,13 @@ def post(request) -> requests.Response:
     return requests.post(URL, json=SCAN_CALL)
 
 
-@pytest.mark.parametrize("post", [{"method": "scan", "args": []}, ], indirect=True)
+@pytest.mark.parametrize(
+    "post",
+    [
+        {"method": "scan", "args": []},
+    ],
+    indirect=True,
+)
 def test_is_json(post):
     """
     Test the JSON response can be loaded.
@@ -153,7 +155,8 @@ def test_is_http_ko_no_id_with_client(werkzeug_app_client):
     with pytest.raises(AttributeError):
         response = werkzeug_app_client.post(
             "/jsonrpc",
-            data=json.dumps(SCAN_CALL_NO_ID), content_type="application/json"
+            data=json.dumps(SCAN_CALL_NO_ID),
+            content_type="application/json",
         )
         assert response.status_code == 500
 
@@ -163,8 +166,5 @@ def test_is_http_ko_no_id_with_requests():
     Test the JSON response can be loaded.
     :param post: Fixture of the scan call
     """
-    response = requests.post(
-        URL,
-        json=SCAN_CALL_NO_ID
-    )
+    response = requests.post(URL, json=SCAN_CALL_NO_ID)
     assert response.status_code == 500

@@ -2,6 +2,7 @@
 This module is a flask app that serves the EgaPro data, via a JSON API.
 It read the data from a CSV file, and serves it as a JSON object.
 """
+
 from csv import DictReader
 
 from flask import Flask, jsonify
