@@ -18,5 +18,6 @@ jobs:
       - name: Upload compressed PDF
         uses: actions/upload-artifact@v4 # Utilisation d'une action pour uploader un artefact
         with:
+          submodules: 'true'
           name: gs-compressed-pdf # Nom de l'artefact
           path: doc/build/pdf/Tests-Logiciels-Master-MS2D-gs-default.pdf # Chemin de des artefacts à stocker
