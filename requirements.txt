@@ -9,3 +9,5 @@ json-rpc
 werkzeug
 # BDD
 behave
+# API deployment
+flask

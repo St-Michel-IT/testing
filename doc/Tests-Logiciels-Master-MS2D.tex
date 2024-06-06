@@ -366,7 +366,7 @@ E       assert (1 % 2) == 0
         \transdissolve
         Ce test crash avant l'assert.
         \begin{lstlisting}[language=Python]
-def test_fail_or_error():  # Une erreur donne un fail ou error?
+def test_fail_or_error():  # Une erreur donne un fail ou error ?
     dividende = 23 / 0
     assert dividende % 2 == 0, \
         "Le restant de la division est différent de 0."
@@ -430,7 +430,7 @@ def customer_without_table():
     """
     customer = Customer()  # Arrange et Act dans le setup avant yiel ou return
     yield customer
-    customer.con.close()  # Pas de nom en A, ils l'ont oublié?
+    customer.con.close()  # Pas de nom en A, ils l'ont oublié ?
         \end{lstlisting}
         Le test tend vers un \lstinline{assert} quasi seul.
         \begin{lstlisting}[language=Python]
@@ -598,16 +598,33 @@ TOTAL                      9      0   100%
         \frametitle{Mutation testing}
         \framesubtitle{Vérifier la qualité des tests unitaires}
         \transdissolve
+        Si on prend la suite de Fibonacci comme exemple~:
+        \begin{lstlisting}[language=Python,basicstyle=\ttfamily\tiny]
+def fibonacci(n: int) -> int:
+    """
+    According to https://www.dcode.fr/nombres-fibonacci.
+    This should return the n-th Fibonacci number.
+
+       :param n: The n-th
+       :return: The corresponding Fibonacci number
+    """
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+        \end{lstlisting}
         Imaginez un test sans assert, il ne fait qu'exécuter le code.
-        Tout le code est couvert, mais le test ne sert à rien.
-        % Python listing
+        Tout le code est couvert mais le test ne sert à rien.
         \begin{lstlisting}[language=Python]
 def test_fibonacci():
-    fibonacci()
+    fibonacci(5)
         \end{lstlisting}
-        \bigbreak
-        Quel est le coverage~?
-        \pause
+        Quel peut être le coverage~?
+    \end{frame}
+
+    \begin{frame}[fragile]
+        \frametitle{Mutation testing}
+        \framesubtitle{Vérifier la qualité des tests unitaires}
         Il peut être de 100\%.
         Encore une fois cette métrique n'est pas suffisante pour juger de la qualité des tests.
         \bigbreak
@@ -640,7 +657,7 @@ def test_fibonacci():
         \framesubtitle{Example avec \lstinline{mutmut}}
         \transdissolve
         Dans le dossier \lstinline{mutmut_fib} il y a 11 tests unitaires qui passent~:
-        \begin{lstlisting}[language=bash,basicstyle=\ttfamily\tiny]
+        \begin{lstlisting}[language=bash]
 $ python -m pytest tests/test_fib.py
 ================================================================ test session starts ======
 platform linux -- Python 3.11.6, pytest-7.4.2, pluggy-1.3.0
@@ -652,11 +669,22 @@ tests/test_fib.py ...........                                                   
 
 ================================================================= 11 passed in 0.04s ======
         \end{lstlisting}
-        Quand un mutant est détecter par les tests, il est \textquote{tué}.
-        Les \textquote{survivants} indiquent que les tests ne sont pas suffisants.
+        Le framework de mutation testing créé un ou plusieurs mutants, i.e, code source modifié.
+        \begin{itemize}
+            \item Si il est détecter par les tests, qu'une sanction au moins change, il est dit \textquote{tué}.
+            \item Si aucune sanction ne change, que tous les tests passent encore, c'est un \textquote{survivants}. Cela indique que les tests ne sont pas suffisants.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]
+        \frametitle{Mutation testing}
+        \framesubtitle{Example avec \lstinline{mutmut}}
+        \transdissolve
         Ici \lstinline{mutmut} créé 5 mutants, donc 5 versions différentes de la fonction \lstinline{mutmut_fib.src.fib.fibonacci}, tous tués.
-        \begin{lstlisting}[language=bash,basicstyle=\ttfamily\tiny]
-venv) chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/testing/mutmut$ mutmut show 3
+        \bigbreak
+        Exemple de mutant~:
+        \begin{lstlisting}[language=bash]
+$ mutmut show 3
 --- src/fib.py
 +++ src/fib.py
 @@ -1,6 +1,6 @@
@@ -738,14 +766,13 @@ venv) chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/testing/mutmut$ 
         \framesubtitle{Exemple de Cucumber, le plus répandu}
         \transdissolve
         Développé en début des années 2000 par Daniel Terhorst-North, il fait entre autre le constat que~: \textquote{Behaviour} is a more useful word than \textquote{test}\footnote{Daniel Terhorst-North, Introducing BDD, \url{https://dannorth.net/introducing-bdd/}}.
-        \bigbreak
+
         Il utilise les mots clés \textquote{Given}, \textquote{When} et \textquote{Then} pour décrire le comportement attendu du produit en développement dans un scénario.
         \begin{lstlisting}
 Given some initial context (the givens),
 When an event occurs,
 Then ensure some outcomes.
         \end{lstlisting}
-
         Par exemple~:
         \begin{lstlisting}
 Given I just openned a new private window in my browser
@@ -753,9 +780,25 @@ When I browse the https://in-france.fr website
 Then I wan to descover the french economy by activity
 And by region.
         \end{lstlisting}
-
         On comprend facilement que ce sont des critères d'acceptation haut niveau.
         Les tests liés seront donc des tests d'acceptation/fonctionnels.
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Tests avec langage naturel}
+        \framesubtitle{Définitions}
+        \transdissolve
+        \begin{itemize}
+            \item \textquote{Feature}~: Une fonctionnalité à développer et tester.
+            Les tests correspondant à cette fonctionnalité sont regroupés dans un fichier \lstinline{.feature}.
+            \item \textquote{Scenario}~: Un scénario est une suite d'étapes qui décrivent un comportement attendu.
+            Ils peuvent être plusieurs dans un fichier \lstinline{.feature}.
+            \item \textquote{Scenario Outline}~: Un scénario paramétrique, les données d'entrée sont définies dans un tableau.
+            \item \textquote{Given}~: Les conditions initiales du scénario.
+            \item \textquote{When}~: L'action qui déclenche le scénario.
+            \item \textquote{Then}~: Les résultats attendus.
+            \item \textquote{And}~: Pour ajouter des conditions supplémentaires aux 3 mots clés précédents.
+        \end{itemize}
     \end{frame}
 
     \begin{frame}
@@ -770,7 +813,12 @@ And by region.
             \centering
             \includegraphics[width=6cm]{image/given-when-then-exemple}
         \end{columns}
-        \textquote{And} peut être utilisé pour ajouter des conditions supplémentaires aux 3 mots clés précédents\footnote{Getting Started with BDD, \url{https://cucumber.io/blog/bdd/getting-started-with-bdd-part-1/}}.
+        Bonne pratiques~:
+        \begin{itemize}
+            \item Un scenario peut s'exécuter sans 1 de ces 3 mots clés, mais il est considéré comme une bonne pratique de toujours avoir les 3.
+
+            \item Provoquer un crash dans le \textquote{then} avec un \lstinline{assert} ou tout autre helper similaire si le résultat attendu n'est pas vérifié.
+        \end{itemize}
     \end{frame}
 
     \begin{frame}[fragile]
@@ -804,31 +852,27 @@ Example
         \frametitle{BDD qui a-t-il derrière ce langage~?}
         \framesubtitle{Quelques exemples en Python et Java}
         \transdissolve
-        Avec Behave en Python\footnote{Tutorial, \url{https://behave.readthedocs.io/en/latest/tutorial/\#features}}~:
-        \begin{lstlisting}
+        Structure d'un projet Behave en Python\footnote{Tutorial, \url{https://behave.readthedocs.io/en/latest/tutorial/\#features}}~:
+        \begin{lstlisting}[basicstyle=\ttfamily\tiny]
 features/
 features/everything.feature
-features/steps/
 features/steps/steps.py
         \end{lstlisting}
         Derrière une phrase~:
-        \begin{lstlisting}[language=Python]
-from behave import then
-
+        \begin{lstlisting}[language=Python,basicstyle=\ttfamily\tiny]
 @then('the result page will include "{text}"')
-def step_impl(context, text):
+def step_impl(context, text): # context is a global object that is passed between all steps
     if text not in context.response:
         fail('%r not in %r' % (text, context.response))
         \end{lstlisting}
         Avec Cucumber en Java\footnote{Cucumber Java, \url{https://cucumber.io/docs/guides/10-minute-tutorial/}}~:
-        \begin{lstlisting}[language=Java]
+        \begin{lstlisting}[language=Java,basicstyle=\ttfamily\tiny]
 @When("the stock is traded at $price")
 public void theStockIsTradedAt(double price) {
     stock.tradeAt(price);
 }
         \end{lstlisting}
-        \bigbreak
-        C'est une illusion de simplicité, derrière le langage naturel, il y a quasiment la même algorithmique.
+        C'est une illusion de simplicité, derrière le langage naturel, il y a quasiment la même algorithmie qu'en Pytest.
     \end{frame}
 
     \begin{frame}
@@ -938,7 +982,7 @@ class CustomerDatabaseTests(unittest.TestCase):
         \frametitle{Tests assisté par l'IA}
         \framesubtitle{Test de GitHub Copilot le 30 mai 2024}
         \begin{lstlisting}
-(venv) chrichri@chrichri-HKD-WXX:~/Documents/Campus-St-Michel-IT/testing$ python -m unittest test_customer_database_with_copilot.py
+$ python -m unittest test_customer_database_with_copilot.py
 
 ----------------------------------------------------------------------
 Ran 0 tests in 0.000s
@@ -976,7 +1020,7 @@ Traceback (most recent call last):
                ^^^^^^^^^^^^^^^^^^^^^
 TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{lstlisting}
-        En conclusion, on a encore besoin de l'humain...
+        En conclusion, on a encore besoin de l'humain\ldots
     \end{frame}
 
     \begin{frame}[fragile]
@@ -984,7 +1028,8 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \frametitle{Tests assisté par l'IA}
         \framesubtitle{Cover Agent}
         Un framework open source qui utilise la puissance de l'IA pour générer des tests unitaires.
-        Compatible avec la plupart des LLMs grâce à \href{https://www.litellm.ai/}{LiteLLM handles loadbalancing, fallbacks and spend tracking across 100+ LLMs. All in the OpenAI format}. Voir sa page GitHub\footnote{Cover Agent, \url{https://github.com/Codium-ai/cover-agent}}.
+        Compatible avec la plupart des LLMs grâce à \href{https://www.litellm.ai/}{LiteLLM handles loadbalancing, fallbacks and spend tracking across 100+ LLMs. All in the OpenAI format}.
+        Voir sa page GitHub\footnote{Cover Agent, \url{https://github.com/Codium-ai/cover-agent}}.
         \bigbreak
         Exercice \execcounterdispinc{}~: Tester le code \url{https://github.com/St-Michel-IT/testing/blob/main/test_customer_database.py} avec Cover Agent.
     \end{frame}
@@ -1055,7 +1100,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \frametitle{Les tests d'intégration}
         \framesubtitle{Exemple}
 
-        Les 15 lignes de code \url{https://github.com/St-Michel-IT/testing/blob/main/ble_to_rpc.py} permettent de récupérer des données du Bluetooth Low Energy (BLE) et les distribuer \textquote{over} HTTP au format JSON RPC~.
+        Les 15 lignes de code \url{https://github.com/St-Michel-IT/testing/blob/master/ble_to_rpc.py} permettent de récupérer des données du Bluetooth Low Energy (BLE) et les distribuer \textquote{over} HTTP au format JSON RPC~.
         \bigbreak
         C'est donc l'intégration de 3 librairies~:
         \begin{itemize}
@@ -1073,7 +1118,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \framesubtitle{Exercice \execcounterdispinc{}}
         \begin{columns}
             \column{0.7\textwidth}
-            Proposer et rédiger des tests d'intégration pour le code \url{https://github.com/St-Michel-IT/testing/blob/main/ble_to_rpc.py}.
+            Proposer et rédiger des tests d'intégration pour le code \url{https://github.com/St-Michel-IT/testing/blob/master/ble_to_rpc.py}.
             Dans la techno de votre choix.
             \bigbreak
             Tester les 3 protocoles intégrés.
@@ -1114,7 +1159,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \textquote{le but ultime du processus CI/CD qui consiste à supprimer l’intervention humaine pour gagner en temps et en efficacité. Le code est compilé et testé sur l’ordinateur grâce à ce que l’on appelle un build automatisé. S’il n’y a pas de bug le tout est mis en production automatiquement. Cette approche permet aux développeurs de se concentrer sur la conception et le développement et sur les fonctionnalités de l’application.}\footnote{Qu'est-ce que l'approche CI/CD - Qu’est-ce que le processus CI/CD ?, \url{https://www.oracle.com/fr/cloud/definition-approche-ci-cd/}}
         \bigbreak
         \centering
-        \includegraphics[width=7cm]{image/ci-cd-flow.png}
+        \includegraphics[width=7cm]{image/ci-cd-flow}
     \end{frame}
 
     \begin{frame}
@@ -1131,7 +1176,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
         \bigbreak
         \centering
-        \includegraphics[width=7cm]{image/ci-cd-flow.png}
+        \includegraphics[width=7cm]{image/ci-cd-flow}
     \end{frame}
 
     \begin{frame}
@@ -1154,7 +1199,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
             \item Les plateformes de CI/CD sont avant tout des outils collaboratifs.
             Elles permettent le partage des développements dans l'équipe et dans l'entreprise.
             On peut suivre en direct l'état d'avancement et la qualité des développements de ses collègues.
-            \item Elles s'intègre à de nombreux outils comme les SSO, Git, les outils de gestion de projet et de qualité comme ceux d'Atlassian (Jira, Confluence, Bitbucket, etc).
+            \item Elles s'intègrent à de nombreux outils comme les SSO, Git, les outils de gestion de projet et de qualité comme ceux d'Atlassian (Jira, Confluence, Bitbucket, etc).
             \item Une UX/UI plus simple que des données un terminal.
             La prise en main peut-être faite par des métiers autre que celui de développeur (Testeur, Release Manager, Hardware).
             \item Permet de partager les ressources hardware requises pour la compilation, les tests, entre des machines plus ou moins disponibles.
@@ -1173,7 +1218,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         On confond parfois les deux car le terme DevOps étant plus hype que CI/CD, est plus souvent est utilisé.
         \bigbreak
         \centering
-        \includegraphics[width=5cm]{image/caveman-using-a-sophisticated-tool.png}
+        \includegraphics[width=5cm]{image/caveman-using-a-sophisticated-tool}
     \end{frame}
 
     \begin{frame}
@@ -1249,7 +1294,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
             \end{itemize}
             \column{0.5\textwidth}
             \centering
-            \includegraphics[width=5cm]{image/somfy-test-bench.jpg}
+            \includegraphics[width=5cm]{image/somfy-test-bench}
         \end{columns}
     \end{frame}
 
@@ -1258,7 +1303,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \framesubtitle{Résultat de l'enquête JetBrains 2023 sur le CI/CD\footnote{Best Continuous Integration Tools for 2024 ‒ Survey Results, \url{https://blog.jetbrains.com/teamcity/2023/07/best-ci-tools/}}}
         \transdissolve
         \centering
-        \includegraphics[width=6cm]{image/ci-jetbrains-survey.png}
+        \includegraphics[width=6cm]{image/ci-jetbrains-survey}
     \end{frame}
 
     \begin{frame}
@@ -1269,7 +1314,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         On y trouve 21 workflows différents~!
         \bigbreak
         \centering
-        \includegraphics[width=8cm]{image/cpython-github-workflows.png}
+        \includegraphics[width=8cm]{image/cpython-github-workflows}
     \end{frame}
 
     \begin{frame}
@@ -1279,7 +1324,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         5 workflows \textquote{triggered} par un push et une PR~!
         \bigbreak
         \centering
-        \includegraphics[width=8cm]{image/cpython-actions-triggered.png}
+        \includegraphics[width=8cm]{image/cpython-actions-triggered}
     \end{frame}
 
     \begin{frame}
@@ -1293,7 +1338,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
             1 seul job compte plusieurs steps~!
             \column{0.6\textwidth}
             \centering
-            \includegraphics[width=5cm]{image/cpython-workflow-jobs.png}
+            \includegraphics[width=5cm]{image/cpython-workflow-jobs}
         \end{columns}
     \end{frame}
 
@@ -1322,7 +1367,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
         \bigbreak
         \centering
-        \includegraphics[width=5cm]{image/young-praticing-her-homework.png}
+        \includegraphics[width=5cm]{image/young-praticing-her-homework}
     \end{frame}
 
     \begin{frame}[fragile]
@@ -1370,10 +1415,10 @@ $ tree .github
 
     \begin{frame}
         \frametitle{Exemple de CI/CD}
-        \framesubtitle{Pas de runner officiel des worfkflows GitHub en local}
+        \framesubtitle{Des runners mais pas de possibilité d'exécuter l'action directement)}
         \transdissolve
-        Tout les workflows doivent tourner sur des machines GitHub.
-        Avec les coûts et la latence que cela implique.
+        Tout les workflows doivent passer par GitHub Actions même si s'ils sont exécutés sur la machine du développeur, configurée comme un runner.
+        Il faut donc commiter chaque modification et attendre le résultat, c'est chronophage.
         \bigbreak
         Quelles sont donc les bonnes pratiques pour éviter les pièges des plateformes comme GitHub, Circle CI, Jenkins, etc~?
         \pause
@@ -1381,7 +1426,7 @@ $ tree .github
             \item Éviter des fonctionnalités propres à ces plateformes.
             C'est à dire agnostiques aux plateforme.
             \item Écrire des scripts qui peuvent être exécutés en local.
-            Par exemple (scripts BASH, scripts PowerShell, scripts Gradle\footnote{\label{gradle}Accelerate developer productivity, \url{https://gradle.org/}}, Dockerfiles, scripts Ansible)
+            Par exemple (BASH, PowerShell, Gradle\footnote{\label{gradle}Accelerate developer productivity, \url{https://gradle.org/}}, Dockerfiles, Ansible)
             \item Ces scripts peuvent-être appelés dans les jobs du CI/CD~.
             \item Nettoyer vos environnements après le build pour économiser les ressources.
         \end{itemize}
@@ -1416,7 +1461,7 @@ $ tree .github
             \end{itemize}
             \column{0.5\textwidth}
             \centering
-            \includegraphics[width=5cm]{image/github-marketplace.png}
+            \includegraphics[width=5cm]{image/github-marketplace}
         \end{columns}
         Ils sont essentiels pour développer plus rapidement les jobs (reuse, comme dans n'importe quel code).
     \end{frame}
@@ -1430,7 +1475,7 @@ $ tree .github
         Il est écrit en YAML ou en JSON. Et les données pour décrire l'API sont dans la OpenAPI Specification\footnote{API Development for Everyone\url{https://swagger.io/}}.
         \break
         \centering
-        \includegraphics[width=6cm]{image/swagger-capacity.drawio.png}
+        \includegraphics[width=6cm]{image/swagger-capacity.drawio}
     \end{frame}
 
     \begin{frame}[fragile]
@@ -1471,7 +1516,7 @@ $ tree .github
         Par exemple \url{https://api.recherche-entreprises.fabrique.social.gouv.fr/\#/Recherche/search}.
         \bigbreak
         \centering
-        \includegraphics[width=8cm]{image/swagger-ui.png}
+        \includegraphics[width=8cm]{image/swagger-ui}
     \end{frame}
 
     \begin{frame}
@@ -1479,7 +1524,7 @@ $ tree .github
         \framesubtitle{Toutes les fonctionnalités sont déjà dans la marketplace (ou les plugins pour Jenkins)}
         \transdissolve
         \centering
-        \includegraphics[width=8cm]{image/swagger-worflows.png}
+        \includegraphics[width=8cm]{image/swagger-worflows}
     \end{frame}
 
     \begin{frame}[fragile]
@@ -1540,7 +1585,7 @@ jobs:
         \framesubtitle{Publication de VS Code packagé\footnote{microsoft/vscode, \url{https://github.com/microsoft/vscode/releases}}}
         \transdissolve
         \centering
-        \includegraphics[width=9cm]{image/vs-code-release.png}
+        \includegraphics[width=9cm]{image/vs-code-release}
     \end{frame}
 
     \begin{frame}
@@ -1575,7 +1620,7 @@ jobs:
         Le pipeline est écrit en Groovy\cref{groovy} et mais le principe est similaire au fichier Gradle ou workflow GitHub\footnote{Pipeline Examples, \url{https://www.jenkins.io/doc/pipeline/examples/}}.
         \bigbreak
         \centering
-        \includegraphics[width=5cm]{image/jenkins-pipeline.png}
+        \includegraphics[width=5cm]{image/jenkins-pipeline}
     \end{frame}
 
     \begin{frame}
@@ -1598,7 +1643,7 @@ jobs:
         Ce sont des Jenkins slave agents aussi appelés node.
         \bigbreak
         \centering
-        \includegraphics[width=5cm]{image/jenkins-cluster.png}
+        \includegraphics[width=5cm]{image/jenkins-cluster}
     \end{frame}
 
     \subsection{GitLab CI}\label{subsec:gitlab-ci}
@@ -1619,6 +1664,7 @@ jobs:
             \item Gestion de projet
             \item Bug tracking
             \item WiKi
+            \item GitLab Pages (déploiement de sites statiques)
             \item Many more\ldots
         \end{itemize}
     \end{frame}
@@ -1673,7 +1719,7 @@ job_test:
         La web UI de GitLab permet de développer le pipeline et de valider la syntaxe en live dans le \textquote{Pipeline editor}~:
         \bigbreak
         \centering
-        \includegraphics[width=8cm]{image/gitlab-pipeline-editor.png}
+        \includegraphics[width=8cm]{image/gitlab-pipeline-editor}
     \end{frame}
 
     \begin{frame}
@@ -1731,7 +1777,7 @@ job_build:
             \end{lstlisting}
             \column{0.5\textwidth}
             \centering
-            \includegraphics[width=5cm]{image/gitlab-runners.png} \\ Une machine match avec le tag \lstinline{Ubuntu} \\
+            \includegraphics[width=5cm]{image/gitlab-runners} \\ Une machine match avec le tag \lstinline{Ubuntu} \\
         \end{columns}
     \end{frame}
 
