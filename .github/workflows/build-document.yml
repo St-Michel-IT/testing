@@ -11,8 +11,6 @@ jobs:
         uses: actions/checkout@v4 # Utilisation d'une action pour récupérer le code du repository
         with:
           submodules: recursive
-      - name: print
-        run: ls && ls doc && ls style
       - name: Build PDF
         run: /usr/bin/bash compile-latex.sh # Execution du script de compilation du PDF
       - name: Ghostscript compress PDF # Lossless compression of the PDF
@@ -21,4 +19,4 @@ jobs:
         uses: actions/upload-artifact@v4 # Utilisation d'une action pour uploader un artefact
         with:
           name: gs-compressed-pdf # Nom de l'artefact
-          path: doc/build/pdf/Tests-Logiciels-Master-MS2D-gs-default.pdf # Chemin de des artefacts à stocker
+          path: doc/build/pdf/Tests-Logiciels-Master-MS2D-readable.pdf # Chemin de des artefacts à stocker
