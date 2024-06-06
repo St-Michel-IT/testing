@@ -9,6 +9,8 @@ jobs:
         run: sudo apt install texlive-luatex texlive-latex-base texlive-latex-recommended texlive-pictures texlive-latex-extra fonts-ebgaramond ghostscript
       - name: Checkout the code of the repository
         uses: actions/checkout@v4 # Utilisation d'une action pour récupérer le code du repository
+      - name: print
+        run: ls
       - name: Build PDF
         run: /usr/bin/bash compile-latex.sh # Execution du script de compilation du PDF
       - name: Ghostscript compress PDF # Lossless compression of the PDF
