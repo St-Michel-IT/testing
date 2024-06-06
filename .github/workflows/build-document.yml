@@ -6,9 +6,11 @@ jobs:
     steps:
       - name: Install Lualatex # Name of the step
         # Commande à exécuter pour installer les dépendances, Ghostscript et le reste des paquets sont nécessaires pour la compilation du Latex
-        run: sudo apt install texlive-luatex texlive-latex-base texlive-latex-recommended texlive-pictures texlive-latex-extra fonts-ebgaramond ghostscript
+        run: sudo apt install texlive-luatex texlive-latex-base texlive-latex-recommended texlive-pictures texlive-latex-extra ghostscript texlive-fonts-extra
       - name: Checkout the code of the repository
         uses: actions/checkout@v4 # Utilisation d'une action pour récupérer le code du repository
+        with:
+          submodules: recursive
       - name: Build PDF
         run: /usr/bin/bash compile-latex.sh # Execution du script de compilation du PDF
       - name: Ghostscript compress PDF # Lossless compression of the PDF
@@ -17,4 +19,4 @@ jobs:
         uses: actions/upload-artifact@v4 # Utilisation d'une action pour uploader un artefact
         with:
           name: gs-compressed-pdf # Nom de l'artefact
-          path: doc/build/pdf/Tests-Logiciels-Master-MS2D-gs-default.pdf # Chemin de des artefacts à stocker
+          path: doc/build/pdf/Tests-Logiciels-Master-MS2D-readable.pdf # Chemin de des artefacts à stocker
