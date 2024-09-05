@@ -181,7 +181,7 @@
 
         \begin{itemize}
 
-            \item Un programme a pour entrée le standard input, et sorties les standard output et standard error, ce sont les standard streams
+            \item Un programme a pour entrée la standard input, et sorties les standard output et standard error, ce sont les standard streams
             \item Un programme se termine avec un code retour, le plus souvent un entier différent de 0 en cas de problème
             \item Les frameworks de tests retournent 3 statuts, OK, FAILED et ERROR
             \item Les OK si aucune erreur n'a lieu et FAILED en cas d'erreur d'assertion
@@ -234,7 +234,7 @@ AssertionError: Le restant de la division est différent de 0
 
     \begin{frame}{Pourquoi Pytest pour le testing}
         \transdissolve
-        \textquote{pytest is a mature full-featured Python testing tool that helps you write better programs.\footnote{pytest: helps you write better programs , \url{https://docs.pytest.org}}}
+        \textquote{Pytest is a mature full-featured Python testing tool that helps you write better programs.\footnote{pytest: helps you write better programs , \url{https://docs.pytest.org}}}
         \begin{columns}
             \column{0.6\textwidth}
             Pytest est le framework de test en Python le plus utilisé selon les sondages de JetBrains\footnotemark.
@@ -290,8 +290,7 @@ test_divison.py:2: AssertionError
         Ils permettent de tester plusieurs cas avec un seul test.
 
         Le rapport génère un cas de test par paramètre.
-        Il est donc plus détaillé et permet de trouvé
-        les tests en échec plus facilement que si l'\lstinline {assert} était dans une boucle, ce qui ne donne qu'un statut OK ou Fail dans le rapport.
+        Il est donc plus détaillé et permet de trouver les tests en échec plus facilement que si l'\lstinline {assert} était dans une boucle, ce qui ne donne qu'un statut OK ou Fail dans le rapport.
         \begin{lstlisting}[language=Python]
 import pytest
 ...
@@ -383,7 +382,7 @@ def test_instantiation(customer_without_table):
     \begin{frame}[fragile]{Pytest}{Les fixtures, le moyen du pattern A.A.A\footnote{Arrange-Act-Assert: A Pattern for Writing Good Tests, \url{https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/}}}
         \transdissolve
         Le pattern du A.A.A, Arrange, Act, Assert, est facile à implémenter avec les fixtures.
-        Arrange et Act sont isolé dans la fixture, Assert seul est dans le test.
+        Arrange et Act sont isolés dans la fixture, Assert seul est dans le test.
 
         \begin{lstlisting}[language=Python]
 def customer_without_table():
@@ -571,7 +570,7 @@ def test_fibonacci():
         Il peut être de 100\%.
         Encore une fois cette métrique n'est pas suffisante pour juger de la qualité des tests.
         \bigbreak
-        Le mutation est une étape qui intervient \textbf{quand tous les tests unitaires passent uniquement}.
+        La mutation est une étape qui intervient \textbf{quand tous les tests unitaires passent uniquement}.
         Cette étape consiste à modifier le code source pour voir si les tests échouent.
         C'est un raisonnement par l'absurde.
         Ils doivent en effet échouer pour prouver qu'ils testent le comportement du code et ne font pas que l'exécuter.
@@ -610,7 +609,7 @@ tests/test_fib.py ...........                                                   
         \end{lstlisting}
         Le framework de mutation testing créé un ou plusieurs mutants, i.e, code source modifié.
         \begin{itemize}
-            \item S'il est détecter par les tests, qu'une sanction au moins change, il est dit \textquote{tué}.
+            \item S'il est détecté par les tests, qu'une sanction au moins change, il est dit \textquote{tué}.
             \item Si aucune sanction ne change, que tous les tests passent encore, c'est un \textquote{survivants}. Cela indique que les tests ne sont pas suffisants.
         \end{itemize}
     \end{frame}
@@ -645,7 +644,7 @@ $ mutmut show 3
         \transdissolve
         Un rapport de test unitaire devrait contenir~:
         \begin{itemize}
-            \item Les rapport de test avec les résultats des tests unitaires
+            \item Les rapports de test avec les résultats des tests unitaires
             \item Le rapport de test coverage
             \item Le rapport de mutation testing
         \end{itemize}
@@ -665,7 +664,7 @@ $ mutmut show 3
         Le BDD est le sigle de Behavior-Driven Development.
         \begin{columns}
             \column{0.7\textwidth}
-            Vous remarquerez qu'il n'y ici aucune mention liée au testing?
+            Vous remarquerez qu'il n'y ici aucune mention liée au testing~?
 
             Alors pourquoi est-il régulièrement associé au testing~?
             \column{0.3\textwidth}
@@ -687,7 +686,7 @@ $ mutmut show 3
             \item \textquote{Cucumber is a tool that facilitates collaboration and software design (especially domain-driven design).}
             \item \textquote{The purpose of Cucumber is to bridge the communication gap between business and IT by providing a small set of essential scenarios to illustrate core behaviour of unwritten software.}
         \end{itemize}
-        Mais comme c'est au programme et que ça ne choque plus grand monde on va s'en servir d'outil de test quand même. \emoji{smiling-face-with-halo}
+        Mais comme c'est au programme et que ça ne choque plus grand monde, on va s'en servir d'outil de test quand même. \emoji{smiling-face-with-halo}
     \end{frame}
 
     \begin{frame}[fragile]{Spécifier avec le BDD}{Exemple de Cucumber, le plus répandu}
@@ -736,7 +735,7 @@ And by region.
             \centering
             \includegraphics[width=6cm]{image/given-when-then-exemple}
         \end{columns}
-        Bonne pratiques~:
+        Bonnes pratiques~:
         \begin{itemize}
             \item Un scenario peut s'exécuter sans 1 de ces 3 mots clés, mais il est considéré comme une bonne pratique de toujours avoir les 3.
 
@@ -850,7 +849,7 @@ public void theStockIsTradedAt(double price) {
             \item Écrire un test par requirement.
             \item Écrire l'algorithme.
             \item Refactoriser.
-            \item Revenir à l'étape 2 jusqu'à ce que tous les test passent.
+            \item Revenir à l'étape 2 jusqu'à ce que tous les tests passent.
         \end{enumerate}
     \end{frame}
 
@@ -952,7 +951,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
     \end{frame}
 
     \begin{frame}{Les tests d'intégration}{définition}
-        Autrement dit, les tests unitaires ont testés chaque composant, ceux d'intégration testent les interactions entre les composants.
+        Autrement dit, les tests unitaires ont testé chaque composant, ceux d'intégration testent les interactions entre les composants.
         \bigbreak
         \centering
         \includegraphics[width=7cm]{image/integration-testing-vs-unit-testing}
@@ -1006,8 +1005,8 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
             \bigbreak
             Tester les 3 protocoles intégrés.
             \bigbreak
-            Ajouter la fonction de connection BLE à un appareil définie par son adresse et lire la caractéristique \textquote{GATT} \lstinline{2A24}.
-            Rédiger également les tests correspondant.
+            Ajouter la fonction de connection BLE à un appareil défini par son adresse et lire la caractéristique \textquote{GATT} \lstinline{2A24}.
+            Rédiger également les tests correspondants.
             \column{0.3\textwidth}
             \centering
             \includegraphics[width=3cm]{image/ble-2-rpc-stack.drawio}
@@ -1046,7 +1045,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \begin{itemize}
             \item Une des avancées est l'automatisation de multiples taches.
             \item Le mot intégration fait penser qu'on a plusieurs systèmes, logiciels, développeurs, équipes, etc.
-            \item L'\textquote{ordinateur} n'est pas définit, on verra qu'il peut être celui du développeur ou un serveur distant voir un ordinateur inconnu.
+            \item L'\textquote{ordinateur} n'est pas défini, on verra qu'il peut être celui du développeur ou un serveur distant voir un ordinateur inconnu.
             \item \textquote{S’il n’y a pas de bug le tout est mis en production automatiquement.} vous y croyez?
             \item Le but est toujours le même, éliminer un maximum de bug.
         \end{itemize}
@@ -1076,7 +1075,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
             La prise en main peut-être faite par des métiers autre que celui de développeur (Testeur, Release Manager, Hardware).
             \item Permet de partager les ressources hardware requises pour la compilation, les tests, entre des machines plus ou moins disponibles.
             E.g., dans l'embarqué, cela permet de ne pas multiplier le hardware et de limiter le nombre de bancs de test.
-            En générale la compilation qui peut prendre beaucoup de ressources CPU et peut être délocalisée sur un serveur dédié.
+            En général, la compilation qui peut prendre beaucoup de ressources CPU et peut être délocalisée sur un serveur dédié.
         \end{itemize}
     \end{frame}
 
@@ -1093,7 +1092,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
 
     \begin{frame}{Le fondamental du CI/CD}{Livre et site web de Jez Humble\cref{ci}}
         \transdissolve
-        Jez Humble fait un travaille academic depuis les années 2000 pour mesurer l'impact du CI/CD sur les professionnels de l'IT~.
+        Jez Humble fait un travail academic depuis les années 2000 pour mesurer l'impact du CI/CD sur les professionnels de l'IT~.
         \bigbreak
         En plus de plusieurs paramètres liés à la qualité logiciel, il mesure même un impact positif sur l'ambiance de travail~!
         \bigbreak
@@ -1129,7 +1128,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
 
     \begin{frame}{Les différences entre plateformes}
         \transdissolve
-        A lire absolument, un comparatif des différentes plateformes par Atlassian \url{https://www.atlassian.com/fr/continuous-delivery/continuous-integration/tools}.
+        À lire absolument, un comparatif des différentes plateformes par Atlassian \url{https://www.atlassian.com/fr/continuous-delivery/continuous-integration/tools}.
         \bigbreak
         Les différences sont nombreuses, on peut citer~:
         \begin{itemize}
@@ -1153,7 +1152,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
                 \item le coût des licences ou des machines.
                 \item Pas de limites sur le type de logiciel, on peut y connecter un banc de test pour l'embarqué et l'IOT, dans le web, la data, etc\ldots
                 \item Les ressources des machines disponibles.
-                \item La complexité des tests, plus ils sont nombreux et plus ils sont longs à faire tourner et analyser.
+                \item La complexité des tests, plus ils sont nombreux et plus, ils sont longs à faire tourner et analyser.
             \end{itemize}
             \column{0.5\textwidth}
             \centering
@@ -1203,7 +1202,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         Definition~:
         \begin{itemize}
             \item Un workflow est une suite de jobs.
-            \item Un job est une tache à réaliser.
+            \item Un job est une tâche à réaliser.
             \item Un step est une étape de la tache.
             \item Un artefact est un fichier généré par un step.
         \end{itemize}
@@ -1269,7 +1268,7 @@ $ tree .github
         \pause
         \begin{itemize}
             \item Éviter des fonctionnalités propres à ces plateformes.
-            C'est à dire agnostiques aux plateforme.
+            C'est à dire agnostiques aux plateformes.
             \item Écrire des scripts qui peuvent être exécutés en local.
             Par exemple (BASH, PowerShell, Gradle\footnote{\label{gradle}Accelerate developer productivity, \url{https://gradle.org/}}, Dockerfiles, Ansible)
             \item Ces scripts peuvent-être appelés dans les jobs du CI/CD~.
@@ -1280,7 +1279,7 @@ $ tree .github
     \begin{frame}{Gradle}{Gradle comme une passerelle entre le local et la plateforme de CI/CD}
         \transdissolve
         Gradle\cref{gradle} est un outil de build open source.
-        On script en Groovy\footnote{\label{groovy}Groovy, A multi-faceted language for the Java platform, \url{https://groovy-lang.org/}} ou Kotlin\footnote{Kotlin, \url{https://kotlinlang.org/}}, en local des taches de build, équivalente au jobs des plateformes de CI/CD~.
+        On script en Groovy\footnote{\label{groovy}Groovy, A multi-faceted language for the Java platform, \url{https://groovy-lang.org/}} ou Kotlin\footnote{Kotlin, \url{https://kotlinlang.org/}}, en local des taches de build, équivalentes aux jobs des plateformes de CI/CD~.
         \bigbreak
         On débug en local, on teste en local, on commit en local.
         Cela fait gagner un temps considérable (pas de commit/push\ldots) dans le développement du CI/CD~.
@@ -1297,7 +1296,7 @@ $ tree .github
         \begin{columns}
             \column{0.5\textwidth}
             \begin{itemize}
-                \item Plus de 1~900 plugin Jenkins\footnote[frame]{Jenkins Plugins, \url{https://plugins.jenkins.io/}}.
+                \item Plus de 1~900 plugins Jenkins\footnote[frame]{Jenkins Plugins, \url{https://plugins.jenkins.io/}}.
                 \item Plus de 22~000 actions GitHub\footnote[frame]{GitHub Actions, \url{https://github.com/marketplace?type=actions}}.
             \end{itemize}
             \column{0.5\textwidth}
@@ -1470,7 +1469,7 @@ jobs:
     \begin{frame}{GitLab}{Histoire et présentation de GitLab\footnote{What we do, \url{https://about.gitlab.com/company/}}\footnotestep\footnote{GitLab, \url{https://gitlab.com/st-michel/}}}
         \transdissolve
         GitLab est une plateforme de gestion de développement de logiciels au sens large.
-        Son développement à commencé en 2011~.
+        Son développement a commencé en 2011~.
         \bigbreak
         Le nombre de ces fonctionnalités ne cesse d'augmenter mais elle est surtout connue comme VCS pour son intégration de Git.
         \bigbreak
@@ -1499,12 +1498,12 @@ jobs:
 
         Les fonctionnalités de ces 3 versions sont bien différentes, voir \url{https://about.gitlab.com/pricing/feature-comparison/}.
 
-        On ne paie donc pas que pour les ressources utilisés comme chez GitHub mais aussi pour les fonctionnalités.
+        On ne paie donc pas que pour les ressources utilisées comme chez GitHub mais aussi pour les fonctionnalités.
     \end{frame}
 
     \begin{frame}[fragile]{GitLab}{Le pipeline\footnote{Tutorial: Create and run your first GitLab CI/CD pipeline, \url{https://docs.gitlab.com/ee/ci/quick_start/}}}
         \transdissolve
-        Très similaire aux workflows GitHub c'est un ensemble de \textquote{Jobs} spécifiés dans un fichier YAML~.
+        Très similaire aux workflows GitHub, c'est un ensemble de \textquote{Jobs} spécifiés dans un fichier YAML~.
         \bigbreak
         Il doit être à la racine du projet et se nommer \lstinline{.gitlab-ci.yml}.
         \begin{lstlisting}[basicstyle=\ttfamily\tiny]
@@ -1551,7 +1550,7 @@ job_test:
                 \end{itemize}
             \end{tiny}
             \column{0.5\textwidth}
-            La machine peut-être un PC, un serveur, un banc de test, Windows, Mac, Linux, etc.
+            La machine peut être un PC, un serveur, un banc de test, Windows, Mac, Linux, etc.
             \bigbreak
             Suivre le tutoriel officiel\cref{configrunner} pour configurer un runner et le lancer.
             Une fois que le programme \lstinline{gitlab-runner run} est lancé, le runner est prêt à exécuter les pipelines.
@@ -1624,7 +1623,7 @@ job_build:
     \begin{frame}{Risques cyber lié au CI/CD}{Quels sont les risques cyber lié au CI/CD~?}
         \transdissolve
         \pause
-        Une mauvaise configuration des droits, une faille non patchée, un secret exposé peuvent permettre d'accéder au données du CI/CD~.
+        Une mauvaise configuration des droits, une faille non patchée, un secret exposé peuvent permettre d'accéder aux données du CI/CD~.
         Donc probablement le code source.
 
         Exemples de hacks majeurs liés au CI/CD~:
@@ -1633,7 +1632,7 @@ job_build:
             Un fournisseur de services et logiciels de supervision de réseau.
             Les hackers ont ensuite exploité les failles de Solar Winds et accédé aux réseaux des clients comme MS qui a vu un source de Windows fuiter.
             \item Circle CI a vu des secrets exposés\footnote{The CircleCI secrets hack is a red flag for security teams on software supply chain risk, \url{https://www.reversinglabs.com/blog/circleci-hack-is-a-red-flag-for-security-teams-on-the-software-supply-chain}}.
-            Le hack n'a pas touché ceux qui avait mis en place Open ID Connect, la configuration est donc importante.
+            Le hack n'a pas touché ceux qui avaient mis en place Open ID Connect, la configuration est donc importante.
         \end{itemize}
     \end{frame}
 
@@ -1644,7 +1643,7 @@ job_build:
             \item Pour éliminer du bug.
             \item Un outil collaboratif pour partager les résultats dans l'équipe et l'entreprise.
             \item Faire d'abord en local puis exécuter dans la plateforme CI/CD~.
-            \item S'inspirer des outils qu'on a vue dans ou l'IDE ou en testing pour écrire des scripts.
+            \item S'inspirer des outils qu'on a vus dans ou l'IDE ou en testing pour écrire des scripts.
             \item Attention aux ressources sur les machines locales.
             \item Attention aux coûts sur le cloud.
         \end{itemize}
@@ -1671,9 +1670,9 @@ job_build:
     \begin{frame}{Stubbing et Mocking}{Mock VS Stub\footnote{When to Mock, \url{https://enterprisecraftsmanship.com/posts/when-to-mock/}}}
         \begin{columns}
             \column{0.5\textwidth}
-            S'il n'y pas de valeur retournée, comme dans une commande par exemple, on se tourne évidemment vers les Mock. Pourquoi \emoji{red-question-mark}
+            S'il n'y a pas de valeur retournée, comme dans une commande par exemple, on se tourne évidemment vers les Mock. Pourquoi \emoji{red-question-mark}
             \bigbreak
-            Les stubs ont pour but de retourner une valeur simulée, comme avec un requête.
+            Les stubs ont pour but de retourner une valeur simulée, comme avec une requête.
             \bigbreak
             Voir le pattern CQS\ldots
             \column{0.5\textwidth}
