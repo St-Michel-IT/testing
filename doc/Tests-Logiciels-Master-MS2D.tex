@@ -27,9 +27,7 @@
 
 
     \section{Programme du module}\label{sec:programme-du-module}
-    \begin{frame}
-        \frametitle{Tests Logiciels}
-        \framesubtitle{Compétences acquises aucours des 3 jours du module}
+    \begin{frame}{Tests Logiciels}{Compétences acquises aucours des 3 jours du module}
         \transdissolve
         \begin{itemize}
             \item Savoir développer et mettre en place des tests unitaires sur une application.
@@ -43,9 +41,7 @@
         \includegraphics[width=3cm]{image/funny-cartoon-of-a-smart-young-computer-scientist}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Tests Logiciels}
-        \framesubtitle{Le programme des 3 jours du module}
+    \begin{frame}{Tests Logiciels}{Le programme des 3 jours du module}
         \transdissolve
         Programme~:
         \begin{enumerate}
@@ -73,10 +69,7 @@
         \end{enumerate}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Intervenant sur le module Tests Logiciels}
-        \framesubtitle{Christophe Brun, CTO d'In France}
+    \begin{frame}{Intervenant sur le module Tests Logiciels}{Christophe Brun, CTO d'In France}
 
         \begin{columns}
             \column{0.7\textwidth}
@@ -108,9 +101,7 @@
 
 
     \section{Généralités}\label{sec:generalites}
-    \begin{frame}
-        \transdissolve
-        \frametitle{L'histoire du testing}
+    \begin{frame}{L'histoire du testing}
 
         \begin{itemize}
 
@@ -123,9 +114,7 @@
 
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Qu’est-ce qu’un test~?}
-        \framesubtitle{Définition de l'International Software Testing Qualifications Board et IBM}
+    \begin{frame}{Qu’est-ce qu’un test~?}{Définition de l'International Software Testing Qualifications Board et IBM}
         \transdissolve
         L’ISTQB définit les termes suivants dans son glossaire\footnote{ISTQB, Glossaire des termes utilisés en tests de logiciels, \url{https://www.cftl.fr/wp-content/uploads/2018/10/Glossaire-des-tests-logiciels-v3_2F-ISTQB-CFTL-1.pdf}}~:
 
@@ -145,9 +134,7 @@
 
 
     \section{Tests Unitaires}\label{sec:tests-unitaires}
-    \begin{frame}
-        \frametitle{Qu’est-ce qu’un test unitaire~?}
-        \framesubtitle{Définition de la taverne du testeur\footnote{Mais c’est quoi un test unitaire~?, \url{https://latavernedutesteur.fr/2018/04/11/mais-cest-quoi-un-test-unitaire/}}}
+    \begin{frame}{Qu’est-ce qu’un test unitaire~?}{Définition de la taverne du testeur\footnote{Mais c’est quoi un test unitaire~?, \url{https://latavernedutesteur.fr/2018/04/11/mais-cest-quoi-un-test-unitaire/}}}
         \transdissolve
         Il obéit au principe \textquote{F.I.R.S.T.}~:
         \begin{itemize}
@@ -163,9 +150,7 @@
         Il doit donc être écrit dans le but de tester la logique d’une ligne de code et si un test unitaire échoue vous pouvez connaitre la ligne de code incriminée.
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Testing, les frameworks de test unitaire}
+    \begin{frame}{Testing, les frameworks de test unitaire}
         \begin{itemize}
             \item UnitTest, le framework de test standard de Python
             \item PyTest, un framework pour tout faire en Python
@@ -177,9 +162,7 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{La Pyramide des tests}
+    \begin{frame}{La Pyramide des tests}
         \begin{columns}
             \column{0.3\textwidth}
             Différents types de tests peuvent être identifiés.
@@ -194,9 +177,7 @@
 
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Testing}
+    \begin{frame}{Testing}
 
         \begin{itemize}
 
@@ -214,9 +195,7 @@
 
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Brief sur les outils de test logiciel}
+    \begin{frame}{Brief sur les outils de test logiciel}
         \begin{itemize}
             \item Les frameworks de test retournent 3 statuts, OK, FAILED et ERROR~.
 
@@ -236,9 +215,7 @@
     \end{frame}
 
 
-    \begin{frame}[fragile]
-        \frametitle{L'assertion error}
-        \framesubtitle{En Python}
+    \begin{frame}[fragile]{L'assertion error}{En Python}
         \transdissolve
         L’instruction \lstinline{assert} vérifie une condition.
         Si la condition est vraie, cela ne fait rien et votre programme continue simplement à s’exécuter.
@@ -255,8 +232,7 @@ AssertionError: Le restant de la division est différent de 0
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pourquoi Pytest pour le testing}
+    \begin{frame}{Pourquoi Pytest pour le testing}
         \transdissolve
         \textquote{pytest is a mature full-featured Python testing tool that helps you write better programs.\footnote{pytest: helps you write better programs , \url{https://docs.pytest.org}}}
         \begin{columns}
@@ -272,9 +248,7 @@ AssertionError: Le restant de la division est différent de 0
 
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Rédiger un test}
+    \begin{frame}[fragile]{Pytest}{Rédiger un test}
         \transdissolve
         \begin{itemize}
             \item Un module de test Pytest est un module Python préfixé par \lstinline{test_}.
@@ -291,9 +265,7 @@ def test_divide():  # Un test Pytest est préfixé par test_
     \end{frame}
 
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Lancer les tests}
+    \begin{frame}[fragile]{Pytest}{Lancer les tests}
         \transdissolve
         Lancer avec la commande \lstinline{python -m pytest test_divison.py}, Pytest affiche le rapport de test.
         \begin{lstlisting}[language=sh]
@@ -311,9 +283,7 @@ test_divison.py:2: AssertionError
         Pour les découvrir, lancez \lstinline{python -m pytest --help} et \textquote{RTFM}.
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Les tests paramétriques}
+    \begin{frame}[fragile]{Pytest}{Les tests paramétriques}
         \transdissolve
         Les tests paramétriques sont des tests qui prennent un ensemble de paramètres en entrées.
 
@@ -331,9 +301,7 @@ def test_divide_from_0_to_99(dividend):  # Doit avoir un argument présent dans 
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Les tests paramétriques}
+    \begin{frame}[fragile]{Pytest}{Les tests paramétriques}
         \transdissolve
         Génère 100 cas de tests.
         Met en évidence les dividendes dont le restant de la division par 2 est différent de 0, ici 1 par exemple.
@@ -359,9 +327,7 @@ E       assert (1 % 2) == 0
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Plantage dans un test, quel statut?}
+    \begin{frame}[fragile]{Pytest}{Plantage dans un test, quel statut?}
         \transdissolve
         Ce test crash avant l'assert.
         \begin{lstlisting}[language=Python]
@@ -387,9 +353,7 @@ test_divison.py:14: ZeroDivisionError
         \end{dangercolorbox}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Les fixtures}
+    \begin{frame}[fragile]{Pytest}{Les fixtures}
         \transdissolve
         Cf. \url{https://github.com/St-Michel-IT/testing/blob/main/test_customer_database.py}
 
@@ -416,9 +380,7 @@ def test_instantiation(customer_without_table):
         Le rapport reflétera fidèlement le test et sera exempt de faux négatif.
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Les fixtures, le moyen du pattern A.A.A\footnote{Arrange-Act-Assert: A Pattern for Writing Good Tests, \url{https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/}}}
+    \begin{frame}[fragile]{Pytest}{Les fixtures, le moyen du pattern A.A.A\footnote{Arrange-Act-Assert: A Pattern for Writing Good Tests, \url{https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/}}}
         \transdissolve
         Le pattern du A.A.A, Arrange, Act, Assert, est facile à implémenter avec les fixtures.
         Arrange et Act sont isolé dans la fixture, Assert seul est dans le test.
@@ -442,9 +404,7 @@ def test_instantiation(customer_without_table):
         Le langage Gherkin utilise les étapes Given-When-Then pour spécifier les comportements dans les scénarios.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pytest}
-        \framesubtitle{Exercice \execcounterdispinc{}, écrire un test avec une fixture}
+    \begin{frame}{Pytest}{Exercice \execcounterdispinc{}, écrire un test avec une fixture}
         \transdissolve
         \textbf{Exercice~:} Écrivez votre premier test Pytest avec une fixture en respectant les exigences suivantes~:
         \begin{itemize}
@@ -457,9 +417,7 @@ def test_instantiation(customer_without_table):
         Pour être évalué, créez un seul repo contenant tous les exercices de ce cours.
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Le scope des fixtures}
+    \begin{frame}[fragile]{Pytest}{Le scope des fixtures}
         \transdissolve
         L'argument \lstinline{scope} du décorateur \lstinline{pytest.fixture} défini la durée de vie
         de la fixture.
@@ -481,9 +439,7 @@ def customer_without_table():
         Si préparer les conditions initiales, le setup, prend du temps, on évitera si possible de le répéter à chaque test avec les scopes \lstinline{module}, \lstinline{session}.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pytest}
-        \framesubtitle{\lstinline{Le conftest.py}}
+    \begin{frame}{Pytest}{\lstinline{Le conftest.py}}
         \transdissolve
         Il n'a qu'une seule particularité, c'est d'être importé automatiquement par Pytest lorsqu'il est présent dans le dossier courant des tests.
 
@@ -512,9 +468,7 @@ def customer_without_table():
         \end{columns}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Pytest}
-        \framesubtitle{Le coverage}
+    \begin{frame}[fragile]{Pytest}{Le coverage}
         \transdissolve
         Pas de support natif du coverage par Pytest, il faut installer le plugin \lstinline{pytest-cov}\footnote{Welcome to pytest-cov’s documentation!, \url{https://pytest-cov.readthedocs.io/en/latest/}}.
 
@@ -540,9 +494,7 @@ TOTAL                      9      0   100%
 
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pytest}
-        \framesubtitle{Le coverage}
+    \begin{frame}{Pytest}{Le coverage}
         \transdissolve
         \begin{columns}
 
@@ -557,9 +509,7 @@ TOTAL                      9      0   100%
 
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pytest}
-        \framesubtitle{Le secret de la réussite}
+    \begin{frame}{Pytest}{Le secret de la réussite}
         \transdissolve
         \begin{columns}
             \column{0.7\textwidth}
@@ -578,9 +528,7 @@ TOTAL                      9      0   100%
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Pytest}
-        \framesubtitle{Travaux dirigés sur les tests unitaires}
+    \begin{frame}{Pytest}{Travaux dirigés sur les tests unitaires}
         \transdissolve
         \textbf{Exercice \execcounterdispinc{}}~: Toujours à partir de la librairie du repo \url{https://github.com/St-Michel-IT/testing/}, où le module \lstinline{customer_database.py} est testé par \lstinline{test_customer_database.py}.
         Ajoutez une méthode qui modifie les données d'un client et les tests qui vont avec.
@@ -593,9 +541,7 @@ TOTAL                      9      0   100%
 
     \section{Le mutation testing}\label{sec:mutation-testing}
 
-    \begin{frame}[fragile]
-        \frametitle{Mutation testing}
-        \framesubtitle{Vérifier la qualité des tests unitaires}
+    \begin{frame}[fragile]{Mutation testing}{Vérifier la qualité des tests unitaires}
         \transdissolve
         Si on prend la suite de Fibonacci comme exemple~:
         \begin{lstlisting}[language=Python,basicstyle=\ttfamily\tiny]
@@ -621,9 +567,7 @@ def test_fibonacci():
         Quel peut être le coverage~?
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Mutation testing}
-        \framesubtitle{Vérifier la qualité des tests unitaires}
+    \begin{frame}[fragile]{Mutation testing}{Vérifier la qualité des tests unitaires}
         Il peut être de 100\%.
         Encore une fois cette métrique n'est pas suffisante pour juger de la qualité des tests.
         \bigbreak
@@ -633,9 +577,7 @@ def test_fibonacci():
         Ils doivent en effet échouer pour prouver qu'ils testent le comportement du code et ne font pas que l'exécuter.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Mutation testing}
-        \framesubtitle{Fonctionnement des librairies comme \lstinline{mutmut}\footnote{mutmut - python mutation tester, \url{https://mutmut.readthedocs.io/en/latest/}}}
+    \begin{frame}{Mutation testing}{Fonctionnement des librairies comme \lstinline{mutmut}\footnote{mutmut - python mutation tester, \url{https://mutmut.readthedocs.io/en/latest/}}}
         \transdissolve
         La librairie de mutation essaie de modifier le code avec par exemple les règles suivantes~:
         \begin{itemize}
@@ -651,9 +593,7 @@ def test_fibonacci():
     \end{frame}
 
 
-    \begin{frame}[fragile]
-        \frametitle{Mutation testing}
-        \framesubtitle{Example avec \lstinline{mutmut}}
+    \begin{frame}[fragile]{Mutation testing}{Example avec \lstinline{mutmut}}
         \transdissolve
         Dans le dossier \lstinline{mutmut_fib} il y a 11 tests unitaires qui passent~:
         \begin{lstlisting}[language=bash]
@@ -670,14 +610,12 @@ tests/test_fib.py ...........                                                   
         \end{lstlisting}
         Le framework de mutation testing créé un ou plusieurs mutants, i.e, code source modifié.
         \begin{itemize}
-            \item Si il est détecter par les tests, qu'une sanction au moins change, il est dit \textquote{tué}.
+            \item S'il est détecter par les tests, qu'une sanction au moins change, il est dit \textquote{tué}.
             \item Si aucune sanction ne change, que tous les tests passent encore, c'est un \textquote{survivants}. Cela indique que les tests ne sont pas suffisants.
         \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Mutation testing}
-        \framesubtitle{Example avec \lstinline{mutmut}}
+    \begin{frame}[fragile]{Mutation testing}{Example avec \lstinline{mutmut}}
         \transdissolve
         Ici \lstinline{mutmut} créé 5 mutants, donc 5 versions différentes de la fonction \lstinline{mutmut_fib.src.fib.fibonacci}, tous tués.
         \bigbreak
@@ -697,17 +635,13 @@ $ mutmut show 3
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Mutation testing}
-        \framesubtitle{Example avec \lstinline{mutmut}}
+    \begin{frame}{Mutation testing}{Example avec \lstinline{mutmut}}
         \transdissolve
         \centering
         \includegraphics[width=11cm]{image/mutmut-result}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Mutation testing}
-        \framesubtitle{Conclusion}
+    \begin{frame}{Mutation testing}{Conclusion}
         \transdissolve
         Un rapport de test unitaire devrait contenir~:
         \begin{itemize}
@@ -721,9 +655,7 @@ $ mutmut show 3
 
 
     \section{Le BDD}\label{sec:le-bdd}
-    \begin{frame}
-        \frametitle{Tests avec langage naturel}
-        \framesubtitle{A.K.A le BDD}
+    \begin{frame}{Tests avec langage naturel}{A.K.A le BDD}
         \transdissolve
 
         \begin{dangercolorbox}
@@ -746,9 +678,7 @@ $ mutmut show 3
         On pourrait presque finir par croire que le métier peut écrire les tests.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Tests avec langage naturel}
-        \framesubtitle{Cucumber ne serait même pas un outil de test}
+    \begin{frame}{Tests avec langage naturel}{Cucumber ne serait même pas un outil de test}
         \transdissolve
         Dans cette \href{https://news.ycombinator.com/item?id=10194242}{discussion sur Ycombinator}, le créateur de Cucumber affirme plusieurs choses intéressantes dont~:
         \begin{itemize}
@@ -760,9 +690,7 @@ $ mutmut show 3
         Mais comme c'est au programme et que ça ne choque plus grand monde on va s'en servir d'outil de test quand même. \emoji{smiling-face-with-halo}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Spécifier avec le BDD}
-        \framesubtitle{Exemple de Cucumber, le plus répandu}
+    \begin{frame}[fragile]{Spécifier avec le BDD}{Exemple de Cucumber, le plus répandu}
         \transdissolve
         Développé en début des années 2000 par Daniel Terhorst-North, il fait entre autre le constat que~: \textquote{Behaviour} is a more useful word than \textquote{test}\footnote{Daniel Terhorst-North, Introducing BDD, \url{https://dannorth.net/introducing-bdd/}}.
 
@@ -783,9 +711,7 @@ And by region.
         Les tests liés seront donc des tests d'acceptation/fonctionnels.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Tests avec langage naturel}
-        \framesubtitle{Définitions}
+    \begin{frame}{Tests avec langage naturel}{Définitions}
         \transdissolve
         \begin{itemize}
             \item \textquote{Feature}~: Une fonctionnalité à développer et tester.
@@ -800,9 +726,7 @@ And by region.
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Spécifier avec le BDD}
-        \framesubtitle{Exemple de Cucumber\footnote{Given-When-Then pattern in unit tests, \url{https://www.j-labs.pl/blog-technologiczny/given-when-then-pattern-in-unit-tests/}}}
+    \begin{frame}{Spécifier avec le BDD}{Exemple de Cucumber\footnote{Given-When-Then pattern in unit tests, \url{https://www.j-labs.pl/blog-technologiczny/given-when-then-pattern-in-unit-tests/}}}
         \transdissolve
         \begin{columns}
             \column{0.5\textwidth}
@@ -820,9 +744,7 @@ And by region.
         \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Spécifier avec le BDD}
-        \framesubtitle{Exemple de Cucumber, le plus répandu}
+    \begin{frame}[fragile]{Spécifier avec le BDD}{Exemple de Cucumber, le plus répandu}
         \transdissolve
         Les données d'un test paramétrique sont définies dans un tableau\footnote{Given/When/Then And Example Tables Using the Robot Framework, \url{https://www-codecentric-de.translate.goog/wissens-hub/blog/givenwhenthen-and-example-tables-using-the-robot-framework?_x_tr_sl=en&_x_tr_tl=fr&_x_tr_hl=fr&_x_tr_pto=sc&_x_tr_hist=true}}.
         \begin{lstlisting}[basicstyle=\ttfamily\tiny]
@@ -847,9 +769,7 @@ Example
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{BDD qui a-t-il derrière ce langage~?}
-        \framesubtitle{Quelques exemples en Python et Java}
+    \begin{frame}[fragile]{BDD qui a-t-il derrière ce langage~?}{Quelques exemples en Python et Java}
         \transdissolve
         Structure d'un projet Behave en Python\footnote{Tutorial, \url{https://behave.readthedocs.io/en/latest/tutorial/\#features}}~:
         \begin{lstlisting}[basicstyle=\ttfamily\tiny]
@@ -874,9 +794,7 @@ public void theStockIsTradedAt(double price) {
         C'est une illusion de simplicité, derrière le langage naturel, il y a quasiment la même algorithmie qu'en Pytest.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exercice \execcounterdispinc{} de BDD}
-        \framesubtitle{Exemple de Cucumber, le plus répandu}
+    \begin{frame}{Exercice \execcounterdispinc{} de BDD}{Exemple de Cucumber, le plus répandu}
         \transdissolve
         \textbf{Exercice~:} En utilisant un maximum du code de l'exercice précédent sur les nombres témoins, réécrivez l'équivalent des tests pytest ou autre en scénarios Behave.
     \end{frame}
@@ -884,10 +802,7 @@ public void theStockIsTradedAt(double price) {
 
     \section{Le TDD}\label{sec:le-tdd}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Le TDD}
-        \framesubtitle{Test Driven Development}
+    \begin{frame}{Le TDD}{Test Driven Development}
         Vouloir aller plus vite sans faire de test semble être une mauvaise idée.
 
         Ce qui pratiquent le TDD vont plus vite dès le début d'un projet\footnote{\label{cleanarchitecture}Clean architecture, Robert C. Martin}~!
@@ -902,10 +817,7 @@ public void theStockIsTradedAt(double price) {
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Le TDD}
-        \framesubtitle{Quel type(s) de test~?}
+    \begin{frame}{Le TDD}{Quel type(s) de test~?}
         Tous les types de tests possibles sont à écrire dès que possible avant même de commencer à coder.
         Les tests unitaires sont en général les plus simples à écrire et les plus rapides à exécuter.
         \bigbreak
@@ -915,10 +827,7 @@ public void theStockIsTradedAt(double price) {
         \includegraphics[width=6cm]{image/the-clean-architecture}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Le TDD}
-        \framesubtitle{Quel types de test~?}
+    \begin{frame}{Le TDD}{Quel types de test~?}
         Edsger Dijkstra~: \textquote{Testing shows the presence, not the absence of bugs.}
         \bigbreak
         \begin{columns}
@@ -932,10 +841,7 @@ public void theStockIsTradedAt(double price) {
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Le TDD}
-        \framesubtitle{Exercices \execcounterdispinc{}}
+    \begin{frame}{Le TDD}{Exercices \execcounterdispinc{}}
         De nombreux exercices de TDD sont disponibles sur le web comme par sur GitHub, \url{https://github.com/gabbloquet/entrainement-au-tdd}.
         \bigbreak
         En 30 minutes, sans assistant du type ChatGPT, réaliser l'un des plus classique d'entre eux, le \textquote{FizzBuzz}, \url{https://github.com/gabbloquet/entrainement-au-tdd/tree/master/src/main/java/io/github/gabbloquet/tddtraining/FizzBuzz}~.
@@ -953,8 +859,7 @@ public void theStockIsTradedAt(double price) {
 
     \begin{frame}[fragile]
         \transdissolve
-        \frametitle{Tests assisté par l'IA}
-        \framesubtitle{Test de GitHub Copilot le 30 mai 2024}
+        \frametitle{Tests assisté par l'IA}{Test de GitHub Copilot le 30 mai 2024}
         Based on your request, here are some unit tests for the \lstinline{Customer} class in the \lstinline{customer_database.py} module.
         These tests cover the happy path and some edge cases for the \lstinline{create_table} and \lstinline{insert} methods.
         The test names are self-explanatory and do not start with \textquote{test}.
@@ -978,8 +883,7 @@ class CustomerDatabaseTests(unittest.TestCase):
 
     \begin{frame}[fragile]
         \transdissolve
-        \frametitle{Tests assisté par l'IA}
-        \framesubtitle{Test de GitHub Copilot le 30 mai 2024}
+        \frametitle{Tests assisté par l'IA}{Test de GitHub Copilot le 30 mai 2024}
         \begin{lstlisting}
 $ python -m unittest test_customer_database_with_copilot.py
 
@@ -998,8 +902,7 @@ OK
 
     \begin{frame}[fragile]
         \transdissolve
-        \frametitle{Tests assisté par l'IA}
-        \framesubtitle{Test de GitHub Copilot le 30 mai 2024}
+        \frametitle{Tests assisté par l'IA}{Test de GitHub Copilot le 30 mai 2024}
         \begin{lstlisting}[language=Python]
 class CustomerDatabaseTests(unittest.TestCase):
     def setUp(self):
@@ -1024,8 +927,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
 
     \begin{frame}[fragile]
         \transdissolve
-        \frametitle{Tests assisté par l'IA}
-        \framesubtitle{Cover Agent}
+        \frametitle{Tests assisté par l'IA}{Cover Agent}
         Un framework open source qui utilise la puissance de l'IA pour générer des tests unitaires.
         Compatible avec la plupart des LLMs grâce à \href{https://www.litellm.ai/}{LiteLLM handles loadbalancing, fallbacks and spend tracking across 100+ LLMs. All in the OpenAI format}.
         Voir sa page GitHub\footnote{Cover Agent, \url{https://github.com/Codium-ai/cover-agent}}.
@@ -1036,10 +938,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
 
     \section{Les tests d’intégration}\label{sec:les-tests-d-integration}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{définition}
+    \begin{frame}{Les tests d'intégration}{définition}
         Les tests d’intégrations sont des tests effectués entre les composants afin de s’assurer du fonctionnement des interactions et de l’interface entre les différents composants.
         Ces tests sont également gérés, en général, par des développeurs\footnote{Les niveaux de test, \url{https://latavernedutesteur.fr/2017/11/03/les-niveaux-de-test/}}.
         \begin{columns}
@@ -1052,20 +951,14 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \footnotetext{Glossaire CFTL/ISTQB des termes utilisés en tests de logiciels, \url{https://www.cftl.fr/wp-content/uploads/2018/10/Glossaire-des-tests-logiciels-v3_2F-ISTQB-CFTL-1.pdf}}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{définition}
+    \begin{frame}{Les tests d'intégration}{définition}
         Autrement dit, les tests unitaires ont testés chaque composant, ceux d'intégration testent les interactions entre les composants.
         \bigbreak
         \centering
         \includegraphics[width=7cm]{image/integration-testing-vs-unit-testing}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{les différentes approches, les top-down, bottom-up et mixte\footnote{\label{unice-ti} Tests d’intégration, \url{https://mbf-iut.i3s.unice.fr/lib/exe/fetch.php?media=undefined:7-testintegration-2016.pdf}}}
+    \begin{frame}{Les tests d'intégration}{les différentes approches, les top-down, bottom-up et mixte\footnote{\label{unice-ti} Tests d’intégration, \url{https://mbf-iut.i3s.unice.fr/lib/exe/fetch.php?media=undefined:7-testintegration-2016.pdf}}}
         La top-down consiste à tester les composants les plus hauts de la hiérarchie en premier.
         \break
         La bottom-up consiste à tester les composants les plus bas de la hiérarchie en premier.
@@ -1082,10 +975,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{Bonnes pratiques}
+    \begin{frame}{Les tests d'intégration}{Bonnes pratiques}
         \begin{itemize}
             \item Ne pas tester la logique métier, c'est le rôle des tests unitaires.
             \item Ne pas les mélanger à d'autres tests, unitaire ou autre.
@@ -1094,10 +984,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{Exemple}
+    \begin{frame}{Les tests d'intégration}{Exemple}
 
         Les 15 lignes de code \url{https://github.com/St-Michel-IT/testing/blob/master/ble_to_rpc.py} permettent de récupérer des données du Bluetooth Low Energy (BLE) et les distribuer \textquote{over} HTTP au format JSON RPC~.
         \bigbreak
@@ -1111,10 +998,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         Le tester est donc bien un test d'intégration de ces librairies.
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{Exercice \execcounterdispinc{}}
+    \begin{frame}{Les tests d'intégration}{Exercice \execcounterdispinc{}}
         \begin{columns}
             \column{0.7\textwidth}
             Proposer et rédiger des tests d'intégration pour le code \url{https://github.com/St-Michel-IT/testing/blob/master/ble_to_rpc.py}.
@@ -1130,10 +1014,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \transdissolve
-        \frametitle{Les tests d'intégration}
-        \framesubtitle{Exercice \execcounterdispinc{}}
+    \begin{frame}{Les tests d'intégration}{Exercice \execcounterdispinc{}}
         \begin{columns}
             \column{0.7\textwidth}
             Ils peuvent aussi être utilisés en embarqué, IOT, etc.
@@ -1149,9 +1030,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
     \section{Intégration Continue}\label{sec:ci}
 
     \subsection{Généralité}\label{subsec:ci-general}
-    \begin{frame}
-        \frametitle{Intégration continue A.K.A. CI}
-        \framesubtitle{Les defintions du CI/CD}
+    \begin{frame}{Intégration continue A.K.A. CI}{Les defintions du CI/CD}
         \transdissolve
         CI/CD est l'acronyme de \textquote{Continuous Integration/Continuous Delivery} ou \textquote{Continuous Deployment}.
         \bigbreak
@@ -1161,9 +1040,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=7cm]{image/ci-cd-flow}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Intégration continue A.K.A. CI}
-        \framesubtitle{Les defintions du CI/CD}
+    \begin{frame}{Intégration continue A.K.A. CI}{Les defintions du CI/CD}
         \transdissolve
         Plusieurs remarques~:
         \begin{itemize}
@@ -1178,9 +1055,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=7cm]{image/ci-cd-flow}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Histoire du CI/CD}
-        \framesubtitle{Une histoire récente d'une vingtaine d'années}
+    \begin{frame}{Histoire du CI/CD}{Une histoire récente d'une vingtaine d'années}
         \transdissolve
         \begin{itemize}
             \item 2005, première version de Hudson, le précurseur de Jenkins par Kohsuke Kawaguchi.
@@ -1190,9 +1065,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les avantages du CI/CD}
-        \framesubtitle{Si tout peut être réalisé en local, pourquoi utiliser un serveur~?}
+    \begin{frame}{Les avantages du CI/CD}{Si tout peut être réalisé en local, pourquoi utiliser un serveur~?}
         \transdissolve
         \begin{itemize}
             \item Les plateformes de CI/CD sont avant tout des outils collaboratifs.
@@ -1207,9 +1080,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les avantages du CI/CD}
-        \framesubtitle{Quelles différences avec le DevOps~?}
+    \begin{frame}{Les avantages du CI/CD}{Quelles différences avec le DevOps~?}
         \transdissolve
         Le CI/CD est un des outils du DevOps.
         \bigbreak
@@ -1220,9 +1091,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=5cm]{image/caveman-using-a-sophisticated-tool}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Le fondamental du CI/CD}
-        \framesubtitle{Livre et site web de Jez Humble\cref{ci}}
+    \begin{frame}{Le fondamental du CI/CD}{Livre et site web de Jez Humble\cref{ci}}
         \transdissolve
         Jez Humble fait un travaille academic depuis les années 2000 pour mesurer l'impact du CI/CD sur les professionnels de l'IT~.
         \bigbreak
@@ -1232,9 +1101,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         Son site web \url{https://www.continuousdelivery.com/} contient déjà beaucoup de ressources.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Le business du CI/CD}
-        \framesubtitle{Ce n'est pas une simple technologie mais un marché, attention aux coûts}
+    \begin{frame}{Le business du CI/CD}{Ce n'est pas une simple technologie mais un marché, attention aux coûts}
         \transdissolve
         Git, Python, que nous avons vu, sont des technologies open source devenues des standard.
         Toutes leurs fonctionnalités sont disponibles gratuitement.
@@ -1260,8 +1127,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les différences entre plateformes}
+    \begin{frame}{Les différences entre plateformes}
         \transdissolve
         A lire absolument, un comparatif des différentes plateformes par Atlassian \url{https://www.atlassian.com/fr/continuous-delivery/continuous-integration/tools}.
         \bigbreak
@@ -1278,9 +1144,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les limites du CI/CD}
-        \framesubtitle{Quelles sont les limites du CI/CD~?}
+    \begin{frame}{Les limites du CI/CD}{Quelles sont les limites du CI/CD~?}
         \transdissolve
         \pause
         \begin{columns}
@@ -1297,17 +1161,13 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les plateformes les plus utilisées CI/CD}
-        \framesubtitle{Résultat de l'enquête JetBrains 2023 sur le CI/CD\footnote{Best Continuous Integration Tools for 2024 ‒ Survey Results, \url{https://blog.jetbrains.com/teamcity/2023/07/best-ci-tools/}}}
+    \begin{frame}{Les plateformes les plus utilisées CI/CD}{Résultat de l'enquête JetBrains 2023 sur le CI/CD\footnote{Best Continuous Integration Tools for 2024 ‒ Survey Results, \url{https://blog.jetbrains.com/teamcity/2023/07/best-ci-tools/}}}
         \transdissolve
         \centering
         \includegraphics[width=6cm]{image/ci-jetbrains-survey}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
+    \begin{frame}{Exemple de CI/CD}{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
         \transdissolve
         Une partie seulement de CPython, l'implémentation classique officielle de Python est sur GitHub, il y en a aussi sur Azure DevOps.
         On y trouve 21 workflows différents~!
@@ -1316,9 +1176,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=8cm]{image/cpython-github-workflows}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
+    \begin{frame}{Exemple de CI/CD}{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
         \transdissolve
         5 workflows \textquote{triggered} par un push et une PR~!
         \bigbreak
@@ -1326,9 +1184,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=8cm]{image/cpython-actions-triggered}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
+    \begin{frame}{Exemple de CI/CD}{Exemple de CPython sur GitHub{\footnote{CPython implémentation, \url{https://github.com/python/cpython?tab=readme-ov-file}}} Actions}
         \transdissolve
         \begin{columns}
             \column{0.4\textwidth}
@@ -1341,9 +1197,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de worflow GitHub{\footnote{Automate your workflow from idea to production, \url{https://github.com/features/actions}}}}
+    \begin{frame}{Exemple de CI/CD}{Exemple de worflow GitHub{\footnote{Automate your workflow from idea to production, \url{https://github.com/features/actions}}}}
         \transdissolve
 
         Definition~:
@@ -1355,9 +1209,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de worflow GitHub de ce repository, exercice de 15 minutes}
+    \begin{frame}{Exemple de CI/CD}{Exemple de worflow GitHub de ce repository, exercice de 15 minutes}
         \transdissolve
         Que peut-on faire comme workflow, GitHub Actions, etc, sur les dépôts de ce cours~?
         \begin{itemize}
@@ -1369,9 +1221,7 @@ TypeError: expected str, bytes or os.PathLike object, not Mock
         \includegraphics[width=5cm]{image/young-praticing-her-homework}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de worflow GitHub de ce repository{\footnote{Worflow de génération des documents à partir de Latex, \url{https://github.com/St-Michel-IT/qualite-code-source/blob/master/.github/workflows/}}}}
+    \begin{frame}[fragile]{Exemple de CI/CD}{Exemple de worflow GitHub de ce repository{\footnote{Worflow de génération des documents à partir de Latex, \url{https://github.com/St-Michel-IT/qualite-code-source/blob/master/.github/workflows/}}}}
         \transdissolve
         Les workflows sont dans les fichiers suivants~:
         \begin{lstlisting}[language=sh]
@@ -1389,9 +1239,7 @@ $ tree .github/
         \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Exemple de worflow GitHub du repository testing{\footnote{Worflow de génération des documents à partir de Latex, \url{https://github.com/St-Michel-IT/testing/blob/master/.github/workflows/}}}}
+    \begin{frame}[fragile]{Exemple de CI/CD}{Exemple de worflow GitHub du repository testing{\footnote{Worflow de génération des documents à partir de Latex, \url{https://github.com/St-Michel-IT/testing/blob/master/.github/workflows/}}}}
         \transdissolve
         Les workflows sont dans les fichiers suivants~:
         \begin{lstlisting}[language=sh]
@@ -1412,9 +1260,7 @@ $ tree .github
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Exemple de CI/CD}
-        \framesubtitle{Des runners mais pas de possibilité d'exécuter l'action directement}
+    \begin{frame}{Exemple de CI/CD}{Des runners mais pas de possibilité d'exécuter l'action directement}
         \transdissolve
         Tous les workflows doivent passer par GitHub Actions même s'ils sont exécutés sur la machine du développeur, configurée comme un runner.
         Il faut donc commiter chaque modification et attendre le résultat, c'est chronophage.
@@ -1431,9 +1277,7 @@ $ tree .github
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Gradle}
-        \framesubtitle{Gradle comme une passerelle entre le local et la plateforme de CI/CD}
+    \begin{frame}{Gradle}{Gradle comme une passerelle entre le local et la plateforme de CI/CD}
         \transdissolve
         Gradle\cref{gradle} est un outil de build open source.
         On script en Groovy\footnote{\label{groovy}Groovy, A multi-faceted language for the Java platform, \url{https://groovy-lang.org/}} ou Kotlin\footnote{Kotlin, \url{https://kotlinlang.org/}}, en local des taches de build, équivalente au jobs des plateformes de CI/CD~.
@@ -1447,9 +1291,7 @@ $ tree .github
         \end{dangercolorbox}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les marketplaces des plateformes de CI/CD}
-        \framesubtitle{Un \textquote{market} gratuit ou payant}
+    \begin{frame}{Les marketplaces des plateformes de CI/CD}{Un \textquote{market} gratuit ou payant}
         \transdissolve
         Ne pas avoir peur du nom marketplace, beaucoup de plugins Jenkins ou de workflows GitHub sont gratuits.
         \begin{columns}
@@ -1466,9 +1308,7 @@ $ tree .github
     \end{frame}
 
     \subsection{GitHub Action}\label{subsec:github-action}
-    \begin{frame}
-        \frametitle{Les exemples de CI/CD dans le développement d'API}
-        \framesubtitle{Grâce à Swagger et OpenAPI}
+    \begin{frame}{Les exemples de CI/CD dans le développement d'API}{Grâce à Swagger et OpenAPI}
         \transdissolve
         Swagger est un fichier de définition d'une API~.
         Il est écrit en YAML ou en JSON. Et les données pour décrire l'API sont dans la OpenAPI Specification\footnote{API Development for Everyone\url{https://swagger.io/}}.
@@ -1477,9 +1317,7 @@ $ tree .github
         \includegraphics[width=6cm]{image/swagger-capacity.drawio}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Les exemples de CI/CD dans le développement d'API}
-        \framesubtitle{Grâce à Swagger et OpenAPI}
+    \begin{frame}[fragile]{Les exemples de CI/CD dans le développement d'API}{Grâce à Swagger et OpenAPI}
         \transdissolve
         \begin{lstlisting}
 /lists:
@@ -1506,9 +1344,7 @@ $ tree .github
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les exemples de CI/CD dans le développement d'API}
-        \framesubtitle{Une UI pour découvrir l'API}
+    \begin{frame}{Les exemples de CI/CD dans le développement d'API}{Une UI pour découvrir l'API}
         \transdissolve
         L'UI est un espace convivial pour découvrir l'API~.
         Il fait aussi office de documentation.
@@ -1518,17 +1354,13 @@ $ tree .github
         \includegraphics[width=8cm]{image/swagger-ui}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les exemples de CI/CD dans le développement d'API}
-        \framesubtitle{Toutes les fonctionnalités sont déjà dans la marketplace (ou les plugins pour Jenkins)}
+    \begin{frame}{Les exemples de CI/CD dans le développement d'API}{Toutes les fonctionnalités sont déjà dans la marketplace (ou les plugins pour Jenkins)}
         \transdissolve
         \centering
         \includegraphics[width=8cm]{image/swagger-worflows}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Les exemples de CI/CD avec le déploiement d'une image Docker}
-        \framesubtitle{GitHub ou Docker Hub peuvent héberger des images Docker\footnote{Publishing Docker images, \url{https://docs.github.com/en/actions/publishing-packages/publishing-docker-images}}}
+    \begin{frame}[fragile]{Les exemples de CI/CD avec le déploiement d'une image Docker}{GitHub ou Docker Hub peuvent héberger des images Docker\footnote{Publishing Docker images, \url{https://docs.github.com/en/actions/publishing-packages/publishing-docker-images}}}
         \transdissolve
         \begin{lstlisting}
       - name: Log in to Docker Hub
@@ -1552,9 +1384,7 @@ $ tree .github
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{Les exemples de CI/CD avec la publication de builds}
-        \framesubtitle{Pour publier un soft compilé ou packagé sur sa page du dépôt GitHub\footnote{Create Release, \url{https://github.com/marketplace/actions/create-release}}}
+    \begin{frame}[fragile]{Les exemples de CI/CD avec la publication de builds}{Pour publier un soft compilé ou packagé sur sa page du dépôt GitHub\footnote{Create Release, \url{https://github.com/marketplace/actions/create-release}}}
         \transdissolve
         \begin{lstlisting}
 name: Releases
@@ -1579,17 +1409,13 @@ jobs:
         \end{lstlisting}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Les exemples de CI/CD avec la publication de builds}
-        \framesubtitle{Publication de VS Code packagé\footnote{microsoft/vscode, \url{https://github.com/microsoft/vscode/releases}}}
+    \begin{frame}{Les exemples de CI/CD avec la publication de builds}{Publication de VS Code packagé\footnote{microsoft/vscode, \url{https://github.com/microsoft/vscode/releases}}}
         \transdissolve
         \centering
         \includegraphics[width=9cm]{image/vs-code-release}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Quelques exemples d'étapes de compilation du CI/CD}
-        \framesubtitle{Quelles types de jobs pour passer d'un code source à un exécutable?}
+    \begin{frame}{Quelques exemples d'étapes de compilation du CI/CD}{Quelles types de jobs pour passer d'un code source à un exécutable?}
         \transdissolve
         \pause
         \begin{itemize}
@@ -1604,9 +1430,7 @@ jobs:
     \end{frame}
 
     \subsection{Jenkins}\label{subsec:jenkins}
-    \begin{frame}
-        \frametitle{Quelques notions de base de Jenkins}
-        \framesubtitle{Les jobs VS les pipelines}
+    \begin{frame}{Quelques notions de base de Jenkins}{Les jobs VS les pipelines}
         \transdissolve
         Les jobs sont des taches unitaires.
 
@@ -1622,9 +1446,7 @@ jobs:
         \includegraphics[width=5cm]{image/jenkins-pipeline}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Quelques notions de base de Jenkins}
-        \framesubtitle{Exemple de pipeline avec Gradle}
+    \begin{frame}{Quelques notions de base de Jenkins}{Exemple de pipeline avec Gradle}
         \transdissolve
         Pour être agnostique à une plateforme de CI/CD, on peut exécuter dans la plateforme de CI/CD un build Gradle.
 
@@ -1633,9 +1455,7 @@ jobs:
         Si un maximum de taches, d'intelligence, de scripting sont dans le build Gradle, il sera plus simple de changer de plateforme de CI/CD~.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Quelques notions de base de Jenkins}
-        \framesubtitle{Les clusters de slaves et master\footnote{Jenkins master-slave setup, \url{https://www.linkedin.com/pulse/jenkins-slave-node-soma-sekhar-k-gusdc/}}}
+    \begin{frame}{Quelques notions de base de Jenkins}{Les clusters de slaves et master\footnote{Jenkins master-slave setup, \url{https://www.linkedin.com/pulse/jenkins-slave-node-soma-sekhar-k-gusdc/}}}
         \transdissolve
         Différentes machines esclaves peuvent être reliées à une machine maître.
         Soit pour répartir la charge, soit pour avoir des machines avec des environnements ou des configurations différentes.
@@ -1647,9 +1467,7 @@ jobs:
 
     \subsection{GitLab CI}\label{subsec:gitlab-ci}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Histoire et présentation de GitLab\footnote{What we do, \url{https://about.gitlab.com/company/}}\footnotestep\footnote{GitLab, \url{https://gitlab.com/st-michel/}}}
+    \begin{frame}{GitLab}{Histoire et présentation de GitLab\footnote{What we do, \url{https://about.gitlab.com/company/}}\footnotestep\footnote{GitLab, \url{https://gitlab.com/st-michel/}}}
         \transdissolve
         GitLab est une plateforme de gestion de développement de logiciels au sens large.
         Son développement à commencé en 2011~.
@@ -1668,9 +1486,7 @@ jobs:
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Les versions}
+    \begin{frame}{GitLab}{Les versions}
         \transdissolve
         Community Edition (CE) ou Entreprise Edition (EE)~:
         \bigbreak
@@ -1686,9 +1502,7 @@ jobs:
         On ne paie donc pas que pour les ressources utilisés comme chez GitHub mais aussi pour les fonctionnalités.
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{GitLab}
-        \framesubtitle{Le pipeline\footnote{Tutorial: Create and run your first GitLab CI/CD pipeline, \url{https://docs.gitlab.com/ee/ci/quick_start/}}}
+    \begin{frame}[fragile]{GitLab}{Le pipeline\footnote{Tutorial: Create and run your first GitLab CI/CD pipeline, \url{https://docs.gitlab.com/ee/ci/quick_start/}}}
         \transdissolve
         Très similaire aux workflows GitHub c'est un ensemble de \textquote{Jobs} spécifiés dans un fichier YAML~.
         \bigbreak
@@ -1711,9 +1525,7 @@ job_test:
         Ce Pipeline doit être exécuté dans un \textquote{runner}.
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Développement du pipeline dans la web UI de GiLab.com}
+    \begin{frame}{GitLab}{Développement du pipeline dans la web UI de GiLab.com}
         \transdissolve
         La web UI de GitLab permet de développer le pipeline et de valider la syntaxe en live dans le \textquote{Pipeline editor}~:
         \bigbreak
@@ -1721,9 +1533,7 @@ job_test:
         \includegraphics[width=8cm]{image/gitlab-pipeline-editor}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Le runner\footnote{\label{configrunner}Tutorial: Create, register, and run your own project runner, \url{https://docs.gitlab.com/ee/tutorials/create\_register\_first\_runner/index.html}}}
+    \begin{frame}{GitLab}{Le runner\footnote{\label{configrunner}Tutorial: Create, register, and run your own project runner, \url{https://docs.gitlab.com/ee/tutorials/create\_register\_first\_runner/index.html}}}
         \transdissolve
         Le \textquote{runner} est l'équivalent du Jenkins Slave.
         \bigbreak
@@ -1751,9 +1561,7 @@ job_test:
         \end{dangercolorbox}
     \end{frame}
 
-    \begin{frame}[fragile]
-        \frametitle{GitLab}
-        \framesubtitle{Exécution d'un pipeline sur un runner donné}
+    \begin{frame}[fragile]{GitLab}{Exécution d'un pipeline sur un runner donné}
         \transdissolve
         Par défaut, si dans le pipeline, aucun runner n'est spécifié, le pipeline est exécuté sur un runner disponible et compatible sans que l'on puisse prédire lequel.
         \bigbreak
@@ -1780,9 +1588,7 @@ job_build:
         \end{columns}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Exécution d'un pipeline sur un runner donné}
+    \begin{frame}{GitLab}{Exécution d'un pipeline sur un runner donné}
         \transdissolve
         La liste des exécutions des pipelines est dans Build > Pipelines~:
         \bigbreak
@@ -1790,9 +1596,7 @@ job_build:
         \includegraphics[width=10cm]{image/gitlab-pipelines-executions}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Exécution d'un pipeline sur un runner donné}
+    \begin{frame}{GitLab}{Exécution d'un pipeline sur un runner donné}
         \transdissolve
         Il y a aussi une vue qui liste les Jobs est dans Build > Jobs~:
         \bigbreak
@@ -1800,9 +1604,7 @@ job_build:
         \includegraphics[width=10cm]{image/gitlab-jobs-executions}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Exécution d'un pipeline sur un runner donné}
+    \begin{frame}{GitLab}{Exécution d'un pipeline sur un runner donné}
         \transdissolve
         Une vue détaillée des Jobs d'un Pipeline donné dans Build > Pipelines~:
         \bigbreak
@@ -1810,9 +1612,7 @@ job_build:
         \includegraphics[width=10cm]{image/gitlab-pipeline-jobs-executions}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{GitLab}
-        \framesubtitle{Exécution d'un pipeline sur un runner donné}
+    \begin{frame}{GitLab}{Exécution d'un pipeline sur un runner donné}
         \transdissolve
         Une vue détaillée d'un Job avec les logs horodatées du runner~:
         \bigbreak
@@ -1821,9 +1621,7 @@ job_build:
     \end{frame}
 
     \subsection{Conclusion}\label{subsec:conclusion}
-    \begin{frame}
-        \frametitle{Risques cyber lié au CI/CD}
-        \framesubtitle{Quels sont les risques cyber lié au CI/CD~?}
+    \begin{frame}{Risques cyber lié au CI/CD}{Quels sont les risques cyber lié au CI/CD~?}
         \transdissolve
         \pause
         Une mauvaise configuration des droits, une faille non patchée, un secret exposé peuvent permettre d'accéder au données du CI/CD~.
@@ -1839,8 +1637,7 @@ job_build:
         \end{itemize}
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Conclusions sur le CI/CD}
+    \begin{frame}{Conclusions sur le CI/CD}
         \transdissolve
         \begin{itemize}
             \item C'est un outil de plus pour améliorer la qualité des livrables (documentation, rapport de tests, librairies, exécutables, etc).
@@ -1851,5 +1648,229 @@ job_build:
             \item Attention aux ressources sur les machines locales.
             \item Attention aux coûts sur le cloud.
         \end{itemize}
+    \end{frame}
+
+
+    \section{Stubbing et Mocking}\label{sec:stub-mock}
+
+    \begin{frame}{Stubbing et Mocking}{Qu'est-ce que le stubbing et le mocking~?\footnote{\label{fowler-stub-mock}Mocks Aren't Stubs, \url{https://martinfowler.com/articles/mocksArentStubs.html}}}
+        \begin{itemize}
+            \item Mock et Stub sont parfois appelés des \textquote{doubles} de test.
+            Dans le sens où ils sont le double d'un objet, autre que le SUT (\textquote{Sytem Under Test}).
+            \item En plus de vérifier des données et des comportements du SUT.
+            Le comportement attendu est également vérifié en testant l'interaction avec d'autres objets, ceux à mocker.
+            Les objets mockés sont souvent appelés \textquote{collaborateurs}~.
+            \item Le stub, A.K.A. bouchon, est un objet qui simule un objet réel.
+            Ses interactions avec le SUT doivent être le proche possible de celle de l'objet réel.
+            Celles avec les autres objets peuvent ne pas exister pour plus de simplicité de développement du stub.
+
+            Il peut être utilisé pour découpler les développements, on peut développer un client et le tester sans avoir le vrai serveur en face.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Stubbing et Mocking}{Mock VS Stub\footnote{When to Mock, \url{https://enterprisecraftsmanship.com/posts/when-to-mock/}}}
+        \begin{columns}
+            \column{0.5\textwidth}
+            S'il n'y pas de valeur retournée, comme dans une commande par exemple, on se tourne évidemment vers les Mock. Pourquoi \emoji{red-question-mark}
+            \bigbreak
+            Les stubs ont pour but de retourner une valeur simulée, comme avec un requête.
+            \bigbreak
+            Voir le pattern CQS\ldots
+            \column{0.5\textwidth}
+            \centering
+            \includegraphics[width=6cm]{image/mock-vs-stub-1}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Stubbing et Mocking}{Mock VS Stub}
+        \begin{columns}
+            \column{0.5\textwidth}
+            \centering
+            \begin{large}
+                \textbf{Stub}
+            \end{large}
+            \flushleft
+            \begin{itemize}
+                \item Get et Set des propriétés.
+                \item Set des valeurs de retour.
+                \item Test des états.
+            \end{itemize}
+            \column{0.5\textwidth}
+            \centering
+            \begin{large}
+                \textbf{Mock}
+            \end{large}
+            \flushleft
+            \begin{itemize}
+                \item Test les appels de fonctions du SUT au collaborateur.
+                \item Test des arguments passés du SUT au collaborateur.
+                \item Test des intéractions entre SUT et collaborateur.
+            \end{itemize}
+        \end{columns}
+        \begin{center}
+            \includegraphics[width=4cm]{image/mock-stub-fight}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Stubbing et Mocking}{Classique, Mock ou Stub la conclusion de M. Fowler}
+
+        Selon M. Fowler\cref{fowler-stub-mock}, c'est une histoire de compromis.
+
+        Il oppose l'approche du mocking et l'approche classique.
+
+        Il ne voit pas de bénéfice crucial au Mocking et reste sur sa manière classique de faire du TDD.
+        \begin{columns}
+            \column{0.5\textwidth}
+            \textbf{Le mot du formateur}~: Si vous ne savez pas choisir, ne le faites pas.
+            L'univers des tests est infini et celui des bugs aussi.
+            Écrire les deux voir trois types de tests, classiques et avec doubles pour réduire les bugs, isoler le code et le décorréler les développements (éviter le \textquote{tuilage}).
+            \column{0.5\textwidth}
+            \centering
+            \includegraphics[width=6cm]{image/guy-overthinking}
+        \end{columns}
+    \end{frame}
+
+    \subsection{Mocking}\label{subsec:mock}
+    \begin{frame}[fragile]{Mocking}{Equivalent mocké d'un test unitaire classique\cref{fowler-stub-mock}}
+        Le test unitaire classique~:
+        \begin{lstlisting}[language=Java,basicstyle=\ttfamily\tiny]
+public class OrderStateTester extends TestCase {
+    private static String TALISKER = "Talisker";
+    private static String HIGHLAND_PARK = "Highland Park";
+    private Warehouse warehouse = new WarehouseImpl();
+
+    protected void setUp() throws Exception {
+        warehouse.add(TALISKER, 50);
+        warehouse.add(HIGHLAND_PARK, 25);
+    }
+    public void testOrderIsFilledIfEnoughInWarehouse() {
+        Order order = new Order(TALISKER, 50);
+        order.fill(warehouse);
+        assertTrue(order.isFilled());
+        assertEquals(0, warehouse.getInventory(TALISKER));
+    }
+    public void testOrderDoesNotRemoveIfNotEnough() {
+        Order order = new Order(TALISKER, 51);
+        order.fill(warehouse);
+        assertFalse(order.isFilled());
+        assertEquals(50, warehouse.getInventory(TALISKER));
+    }
+}
+        \end{lstlisting}
+    \end{frame}
+
+    \begin{frame}[fragile]{Mocking}{Equivalent mocké d'un test unitaire classique\cref{fowler-stub-mock}}
+        L'équivalent mocké'~:
+        \begin{lstlisting}[language=Java,basicstyle=\ttfamily\tiny]
+public class OrderInteractionTester extends MockObjectTestCase {
+  private static String TALISKER = "Talisker";
+
+  public void testFillingRemovesInventoryIfInStock() {
+    Order order = new Order(TALISKER, 50);
+    Mock warehouseMock = new Mock(Warehouse.class);
+    warehouseMock.expects(once()).method("hasInventory")
+      .with(eq(TALISKER),eq(50))
+      .will(returnValue(true));
+    warehouseMock.expects(once()).method("remove")
+      .with(eq(TALISKER), eq(50))
+      .after("hasInventory");
+    order.fill((Warehouse) warehouseMock.proxy());
+    warehouseMock.verify();
+    assertTrue(order.isFilled());
+  }
+
+  public void testFillingDoesNotRemoveIfNotEnoughInStock() {
+    Order order = new Order(TALISKER, 51);
+    Mock warehouse = mock(Warehouse.class);
+    warehouse.expects(once()).method("hasInventory")
+      .withAnyArguments()
+      .will(returnValue(false));
+    order.fill((Warehouse) warehouse.proxy());
+    assertFalse(order.isFilled());
+  }
+}
+        \end{lstlisting}
+    \end{frame}
+
+    \begin{frame}[fragile]{Mocking}{Exercice \execcounterdispinc, Redaction d'un test mocké}
+        Le but est d'écrire un test mocké qui test le même SUT que \href{https://github.com/St-Michel-IT/testing/blob/master/test_customer_database.py}{\lstinline{test_witness_number.py}} pour venir le compléter.
+        \begin{itemize}
+            \item Identifier le SUT de ce test.
+            \item Identifier une ou plusieurs libraire(s)/package(s) de mocking compatible(s) avec notre environnement de test.
+            \item Ajouter une dépendance de mocking identifiée au projet.
+            \item Identifier le collaborateur ou double à mocker.
+            \item Rédiger le test mocké équivalent à \href{https://github.com/St-Michel-IT/testing/blob/master/test_customer_database.py}{\lstinline{test_witness_number.py}}.
+            \item Jouer le test et produire le rapport.
+        \end{itemize}
+    \end{frame}
+
+    \subsection{Stubbing}\label{subsec:stubbing}
+
+    \begin{frame}[fragile]{Stubbing}{Equivalent Stubbing d'un test unitaire classique\cref{fowler-stub-mock}}
+        Le stub ou bouchon, qui n'interagit pas avec l'extérieur~:
+        \begin{lstlisting}[language=Java,basicstyle=\ttfamily\tiny]
+public interface MailService {
+  public void send (Message msg);
+}
+
+public class MailServiceStub implements MailService {
+  private List<Message> messages = new ArrayList<Message>();
+  public void send (Message msg) {
+    messages.add(msg);
+  }
+  public int numberSent() {
+    return messages.size();
+  }
+}
+        \end{lstlisting}
+        Le test unitaire bouchonné~:
+        \begin{lstlisting}[language=Java,basicstyle=\ttfamily\tiny]
+class OrderStateTester...
+  public void testOrderSendsMailIfUnfilled() {
+    Order order = new Order(TALISKER, 51);
+    MailServiceStub mailer = new MailServiceStub();
+    order.setMailer(mailer);
+    order.fill(warehouse);
+    assertEquals(1, mailer.numberSent());
+  }
+}
+        \end{lstlisting}
+    \end{frame}
+
+    \begin{frame}[fragile]{Stubbing}{Exercice \execcounterdispinc, Redaction d'un test bouchonné}
+        Le but est d'écrire un test bouchonné qui test le même SUT que \href{https://github.com/St-Michel-IT/testing/blob/master/test_customer_database.py}{\lstinline{test_witness_number.py}} pour venir le compléter.
+        \begin{itemize}
+            \item Identifier le SUT de ce test.
+            \item Identifier le(s) double(s).
+            \item Développer le(s) bouchon(s).
+            \item Rédiger le test bouchonné équivalent à \href{https://github.com/St-Michel-IT/testing/blob/master/test_customer_database.py}{\lstinline{test_witness_number.py}}.
+            \item Jouer le test et produire le rapport.
+        \end{itemize}
+    \end{frame}
+
+
+    \section{Conclusion}\label{sec:conclusion}
+
+    \begin{frame}{Conclusion}
+        \centering
+        \begin{large}
+            \textquote{Write tests until fear is transformed into boredom}\footnote{Kent Beck, Test-Driven Development: By Example}
+        \end{large}
+        \bigbreak
+        \includegraphics[width=5cm]{image/thank-you}
+    \end{frame}
+
+
+    \section{Licence CC}\label{sec:licence}
+
+    \begin{frame}{Licence}{Licence Creative Commons}
+        Support de cours sous licence Creative Commons BY-NC-ND~.
+        \bigbreak
+        Vous pouvez donc, partager, copier, distribuer le document.
+        \bigbreak
+        Attribution requise à PapIT SASU - Pas d’utilisation commerciale - Pas de modification
+        \bigbreak
+        \centering
+        \includegraphics[width=5cm]{image/by-nc-nd-logo}
     \end{frame}
 \end{document}
